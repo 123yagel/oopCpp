@@ -157,7 +157,7 @@ int MyCar::getHand() const
 
 bool MyCar::compare(MyCar car)
 {
-	return (m_i year < car. year);
+	return (m_year < car.year);
 }
 
 void printCar(MyCar car)

@@ -1,8 +1,7 @@
-/*************************
-Baruch rosen 208920884  tirgul ????
-Orit  1234
-Yagel  208761296
-**************************/
+
+// myCar.h
+
+#pragma once 
 #include "stdafx.h"
 #include <string.h>
 
