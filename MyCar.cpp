@@ -7,6 +7,7 @@
 #include "MyCar.h"
 #include "stdafx.h"
 #include <string.h>
+#include <iostream>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int
 		m_color(color),
 		m_gearType(gearType), 
 		m_madeIn(madeIn) {}
-
+/*
 MyCar::MyCar(const MyCar& car):
 	m_carId(car.m_carId),
 	m_price(car.m_price),
@@ -33,7 +34,7 @@ MyCar::MyCar(const MyCar& car):
 	m_gearType(car.m_gearType),
 	m_madeIn(car.m_madeIn) {}
 
-	
+	*/
 
 
 void MyCar::setCarId(const int& carId)
@@ -136,24 +137,20 @@ int MyCar::getHand() const
 	return m_hand;
 }
 
-
-
 bool MyCar::compare(MyCar& car)
 {
 	return (m_year < car.m_year);
 }
 
-void MyCar::printCar(MyCar& car)
+void MyCar::print()
 {
-	cout << "the carId is " << car.m_carId << endl;
-	cout << "price of car is " << car.m_price << endl;
-	cout << "year is " << car.m_year << endl;
-	cout << "color is " << car.m_color << endl;
-	cout << "Engine volume is " << car.m_engineVolume << endl;
-	cout << "Gear type is " << car.m_gearType << endl;
-	cout << "Made In " << car.m_madeIn << endl;
-	cout << car.m_hand << "th hand" << endl;
+	std::cout << "the carId is " << m_carId << endl;
+	std::cout << "price of car is " << m_price << endl;
+	std::cout << "year is " << m_year << endl;
+	std::cout << "color is " << m_color << endl;
+	std::cout << "Engine volume is " << m_engineVolume << endl;
+	std::cout << "Gear type is " << m_gearType << endl;
+	std::cout << "Made In " << m_madeIn << endl;
+	std::cout << m_hand << "th hand" << endl;
 }
 
-MyCar::~MyCar()
-{}

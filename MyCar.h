@@ -4,7 +4,8 @@
 // Orit Herman 206924466 09
 // Yagel Ashkenazi 208761296 05
 
-#pragma once 
+#pragma once
+
 #include "stdafx.h"
 #include <string>
 
@@ -37,12 +38,9 @@ public:
 	//constructor
 	MyCar(int carId, string modelName, int price, int year, string color,
 		int engineVolume, GearType gearType, string madeIn, int hand);
-	// copy constructor
-	MyCar(const MyCar& car);
-
-	//destructor
-	~MyCar();
-
+	// copy constructor - not needed (the auto one is good for us)
+	// MyCar(const MyCar& car);
+	
 	void setCarId(const int& CarId);
 	void setModelName(const string& modelName);
 	void setPrice(const int& price);
@@ -64,7 +62,7 @@ public:
 	int getHand()const;
 
 	bool compare(MyCar& car);
-	void printCar(MyCar& car);
+	void print();
 };
 
 

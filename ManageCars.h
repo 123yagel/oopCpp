@@ -6,16 +6,23 @@
 
 #pragma once
 
+#include "MyCar.h"
+
+#define MAX_CARS 30
+
 class ManageCars
 {
+private:
+	MyCar m_cars[MAX_CARS];
+	int m_carCount = 0;
 public:
 	//Im not sure it should be a default
 	ManageCars();
 	~ManageCars();
-	void addCar();
+	void addCar(MyCar& car);
 	int removeCar(int ID);
-	void CarsFromToYears(int fromYear, int toYear);
-	void CarsFromToPrices(int fromPrice, int toPrice);
+	MyCar* CarsFromToYears(int fromYear, int toYear);
+	MyCar* CarsFromToPrices(int fromPrice, int toPrice);
 	void printCar(int id);
 	void deleteAll();
 	void printAll();
