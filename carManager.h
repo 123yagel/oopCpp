@@ -1,13 +1,5 @@
+// carManager.h
 #pragma once
-
-/*************************
-
-Baruch rosen 208920884  tirgul ????
-Orit  1234
-Yagel  1234
-**************************/
-
-
 
 
 class ManageCars
