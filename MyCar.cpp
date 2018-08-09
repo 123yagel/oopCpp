@@ -6,11 +6,13 @@
 
 #include "MyCar.h"
 #include "stdafx.h"
-#include <string.h>
+#include <string>
 #include <iostream>
 
 using namespace std;
 
+
+//constructer
 MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int year = 0, string color = "Not set yet",
 	int engineVolume = 0, GearType gearType = general, string madeIn = "Not set yet", int hand = 0) :
 		m_carId(carId),
@@ -22,25 +24,15 @@ MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int
 		m_color(color),
 		m_gearType(gearType), 
 		m_madeIn(madeIn) {}
-/*
-MyCar::MyCar(const MyCar& car):
-	m_carId(car.m_carId),
-	m_price(car.m_price),
-	m_year(car.m_year),
-	m_engineVolume(car.m_engineVolume),
-	m_hand(car.m_hand),
-	m_modelName(car.m_modelName),
-	m_color(car.m_color),
-	m_gearType(car.m_gearType),
-	m_madeIn(car.m_madeIn) {}
-
-	*/
 
 
+	//set functions	
+		
 void MyCar::setCarId(const int& carId)
 {
-	if (carId < 100000 || carId>99999999)
-		throw "Invalid car id";
+	if (carId < 100000 || carId>99999999){
+		throw "Invalid car id";}
+	
 	m_carId = carId;
 }
 
@@ -92,6 +84,9 @@ void MyCar::setHand(const int& hand)
 	m_hand = hand;
 }
 
+
+	//get functions
+
 int MyCar::getCarId() const
 {
 	return m_carId;
@@ -137,10 +132,15 @@ int MyCar::getHand() const
 	return m_hand;
 }
 
+
+//compare function
+
 bool MyCar::compare(MyCar& car)
 {
 	return (m_year < car.m_year);
 }
+
+//print car
 
 void MyCar::print()
 {
