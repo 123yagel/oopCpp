@@ -1,4 +1,8 @@
-// myCar.cpp
+// MyCar.cpp
+// Targil1
+// Baruch Rosen 208920884 05
+// Orit Herman 206924466 09
+// Yagel Ashkenazi 208761296 05
 
 #include "MyCar.h"
 #include "stdafx.h"

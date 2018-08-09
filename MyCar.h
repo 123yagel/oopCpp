@@ -1,4 +1,8 @@
-// myCar.h
+// MyCar.h
+// Targil1
+// Baruch Rosen 208920884 05
+// Orit Herman 206924466 09
+// Yagel Ashkenazi 208761296 05
 
 #pragma once 
 #include "stdafx.h"
