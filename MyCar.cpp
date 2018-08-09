@@ -39,7 +39,7 @@ MyCar::MyCar(const MyCar& car):
 void MyCar::setCarId(const int& carId)
 {
 	if (carId < 100000 || carId>99999999)
-		throw "Invalid input";
+		throw "Invalid car id";
 	m_carId = carId;
 }
 
@@ -51,14 +51,14 @@ void MyCar::setModelName(const string& modelName)
 void MyCar::setPrice(const int& price)
 {
 	if (price < 0)
-		throw "Invalid input";
+		throw "Invalid price";
 	m_price = price;
 }
 
 void MyCar::setYear(const int& year)
 {
 	if (year < 1900 || year>2018)
-		throw "Invalid input";
+		throw "Invalid year";
 	m_year = year;
 }
 
@@ -70,7 +70,7 @@ void MyCar::setColor(const string& color)
 void MyCar::setEngineVolume(const int& engineVolume)
 {
 	if (engineVolume > 2000 || engineVolume < 1000)
-		throw "Invalid input";
+		throw "Invalid engine volume";
 	m_engineVolume = engineVolume;
 }
 
@@ -87,7 +87,7 @@ void MyCar::setMadeIn(const string& madeIn)
 void MyCar::setHand(const int& hand)
 {
 	if (hand < 0)
-		throw "Invalid input";
+		throw "Invalid hand";
 	m_hand = hand;
 }
 
@@ -98,12 +98,12 @@ int MyCar::getCarId() const
 
 string MyCar::getModelName() const
 {
-	return m_engineVolume;
+	return m_modelName;
 }
 
 int MyCar::getPrice() const
 {
-	return price;
+	return m_price;
 }
 
 int MyCar::getYear() const

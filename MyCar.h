@@ -61,7 +61,8 @@ public:
 	int getEngineVolume()const;
 	GearType getGearType()const;
 	string getMadeIn()const;
-	void getHand()const;
+	int getHand()const;
+
 	bool compare(MyCar& car);
 	void printCar(MyCar& car);
 };
