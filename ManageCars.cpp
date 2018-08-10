@@ -44,13 +44,38 @@ int ManageCars::removeCar(int carId)
 	}
 }
 
+
+//new
+
 MyCar* ManageCars:: CarsFromToYears(int fromYear, int toYear)
 {
 
+for (int i = 0; i < m_carCount + 1; i++)
+	{
+		if ( (m_cars[i].getYear > fromYear) &&  (m_cars[i].getYear < toYear))
+		{
+			m_cars[i].print();
+		}
+	}
+
+
+
 }
 
+
+//new
 MyCar* ManageCars::CarsFromToPrices(int fromPrice, int toPrice)
 {
+
+	
+for (int i = 0; i < m_carCount + 1; i++)
+	{
+		if ( (m_cars[i].getPrice > fromPrice) &&  (m_cars[i].getPrice < toPrice))
+		{
+			m_cars[i].print();
+		}
+	}
+
 
 }
 
