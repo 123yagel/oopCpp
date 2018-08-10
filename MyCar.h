@@ -14,13 +14,7 @@
 #define MAX_MADEIN_SIZE 40
 #define MAX_GEARTYPE_SIZE 40
 
-enum GearType
-{
-	manualTransmission,
-	automaticTransmission,
-	semiautomaticTransmission,
-	general
-};
+enum GearType{manualTransmission,automaticTransmission,semiautomaticTransmission,general};
 
 class MyCar {
 private:
@@ -30,36 +24,37 @@ private:
 	int m_year;
 	string m_color;
 	int m_engineVolume;
-	GearType m_gearType;
+	GearType m_gearType; //enum declared before
 	string m_madeIn;
-	int m_hand; //??? seconed first etc...
+	int m_hand; 
 	
 public:
-	//constructor
-	MyCar(int carId, string modelName, int price, int year, string color,
-		int engineVolume, GearType gearType, string madeIn, int hand);
-	// copy constructor - not needed (the auto one is good for us)
-	// MyCar(const MyCar& car);
+	// ructor
+	MyCar(int carId, string modelName, int price, int year, string color,int engineVolume, GearType gearType, string madeIn, int hand);
 	
-	void setCarId(const int& CarId);
-	void setModelName(const string& modelName);
-	void setPrice(const int& price);
-	void setYear(const int& year);
-	void setColor(const string& color);
-	void setEngineVolume(const int& engineVolume);
+	//set functions
+	
+	void setCarId(  int& CarId);
+	void setModelName(  string& modelName);
+	void setPrice(  int& price);
+	void setYear(  int& year);
+	void setColor(  string& color);
+	void setEngineVolume(  int& engineVolume);
 	void setGearType(GearType gearType);
-	void setMadeIn(const string& MadeIn);
-	void setHand(const int& hand);
+	void setMadeIn(  string& MadeIn);
+	void setHand(  int& hand);
 
-	int getCarId() const;
-	string getModelName()const;
-	int getPrice()const;
-	int getYear()const;
-	string getColor()const;
-	int getEngineVolume()const;
-	GearType getGearType()const;
-	string getMadeIn()const;
-	int getHand()const;
+	//get functions
+	
+	int getCarId()  ;
+	string getModelName() ;
+	int getPrice() ;
+	int getYear() ;
+	string getColor() ;
+	int getEngineVolume() ;
+	GearType getGearType() ;
+	string getMadeIn() ;
+	int getHand() ;
 
 	bool compare(MyCar& car);
 	void print();

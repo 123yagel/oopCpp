@@ -7,6 +7,8 @@
 #pragma once
 
 #include "MyCar.h"
+#include <iostream>
+#include <string>
 
 #define MAX_CARS 30
 

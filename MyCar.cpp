@@ -12,7 +12,7 @@
 using namespace std;
 
 
-//constructer
+// constucter
 MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int year = 0, string color = "Not set yet",
 	int engineVolume = 0, GearType gearType = general, string madeIn = "Not set yet", int hand = 0) :
 		m_carId(carId),
@@ -28,7 +28,7 @@ MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int
 
 	//set functions	
 		
-void MyCar::setCarId(const int& carId)
+void MyCar::setCarId(int& carId)
 {
 	if (carId < 100000 || carId>99999999){
 		throw "Invalid car id";}
@@ -36,98 +36,103 @@ void MyCar::setCarId(const int& carId)
 	m_carId = carId;
 }
 
-void MyCar::setModelName(const string& modelName)
+void MyCar::setModelName(string& modelName)
 {
 	m_modelName = modelName;
 }
 
-void MyCar::setPrice(const int& price)
+void MyCar::setPrice(int& price)
 {
-	if (price < 0)
-		throw "Invalid price";
+	if (price < 0){
+	throw "Invalid price";}
+	
+	
 	m_price = price;
 }
 
-void MyCar::setYear(const int& year)
+void MyCar::setYear(int& year)
 {
-	if (year < 1900 || year>2018)
-		throw "Invalid year";
+	if (year < 1900 || year>2018){
+	throw "Invalid year";}
+	
 	m_year = year;
 }
 
-void MyCar::setColor(const string& color)
+void MyCar::setColor(string& color)
 {
 	m_color = color;
 }
 
-void MyCar::setEngineVolume(const int& engineVolume)
+void MyCar::setEngineVolume(int& engineVolume)
 {
-	if (engineVolume > 2000 || engineVolume < 1000)
-		throw "Invalid engine volume";
+	if (engineVolume > 2000 || engineVolume < 1000){
+	throw "Invalid engine volume";}
+	
 	m_engineVolume = engineVolume;
 }
 
-void MyCar::setGearType(const GearType gearType)
+void MyCar::setGearType(GearType gearType)
 {
 	m_gearType = gearType;
 }
 
-void MyCar::setMadeIn(const string& madeIn)
+void MyCar::setMadeIn(string& madeIn)
 {
 	m_madeIn = madeIn;
 }
 
-void MyCar::setHand(const int& hand)
+void MyCar::setHand(int& hand)
 {
-	if (hand < 0)
-		throw "Invalid hand";
+	if (hand < 1){
+	throw "Invalid hand";}
+	
 	m_hand = hand;
 }
 
 
 	//get functions
 
-int MyCar::getCarId() const
+int MyCar::getCarId()  
 {
 	return m_carId;
 }
 
-string MyCar::getModelName() const
+string MyCar::getModelName()  
 {
 	return m_modelName;
 }
 
-int MyCar::getPrice() const
+int MyCar::getPrice()  
 {
 	return m_price;
 }
 
-int MyCar::getYear() const
+int MyCar::getYear()  
 {
 	return m_year;
 }
 
-string MyCar::getColor() const
+string MyCar::getColor()  
 {
 	return m_color;
 }
 
-int MyCar::getEngineVolume() const
+int MyCar::getEngineVolume()  
 {
 	return m_engineVolume;
 }
 
-GearType MyCar::getGearType() const
+GearType MyCar::getGearType()  
 {
 	return m_gearType;
 }
 
-string MyCar::getMadeIn() const
+string MyCar::getMadeIn()  
 {
 	return m_madeIn;
 }
 
-int MyCar::getHand() const
+int MyCar::getHand()  
 {
 	return m_hand;
 }
