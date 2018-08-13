@@ -19,10 +19,10 @@ public:
 	//Im not sure it should be a default
 	ManageCars();
 	~ManageCars();
-	void addCar(MyCar& car);
-	int removeCar(int ID);
-	MyCar* CarsFromToYears(int fromYear, int toYear);
-	MyCar* CarsFromToPrices(int fromPrice, int toPrice);
+	void addCar();
+	void removeCar(int ID);
+	void CarsFromToYears(int fromYear, int toYear);
+	void CarsFromToPrices(int fromPrice, int toPrice);
 	void printCar(int id);
 	void deleteAll();
 	void printAll();

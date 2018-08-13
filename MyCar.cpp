@@ -13,7 +13,7 @@ using namespace std;
 
 //Declaring a constructer function with default values to start MyCar objects.
 MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int year = 0, string color = "Not set yet",
-	int engineVolume = 0, GearType gearType = general, string madeIn = "Not set yet", int hand = 0) :
+	int engineVolume = 0, std::string gearType = "Not set yet", string madeIn = "Not set yet", int hand = 0) :
 		m_carId(carId),
 		m_price(price),
 		m_year(year), 
@@ -23,6 +23,19 @@ MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int
 		m_color(color),
 		m_gearType(gearType), 
 		m_madeIn(madeIn) {}
+
+MyCar::MyCar() {
+	int carId = 0;
+	string modelName = "Not set yet"; 
+	int price = 0; 
+	int year = 0; 
+	string color = "Not set yet";
+	int engineVolume = 0; 
+	string gearType = "Not set yet";
+	string madeIn = "Not set yet"; 
+	int hand = 0;
+}
+	
 /*
 MyCar::MyCar(const MyCar& car):
 	m_carId(car.m_carId),
@@ -86,7 +99,7 @@ void MyCar::setEngineVolume(const int& engineVolume)
 
 
 //function that allows outer classes and functions to change m_gearType
-void MyCar::setGearType(const GearType gearType)
+void MyCar::setGearType(const string& gearType)
 {
 	m_gearType = gearType;
 }
@@ -152,7 +165,7 @@ int MyCar::getEngineVolume() const
 
 
 //function that allows outer classes and functions to read the private var m_gearType
-GearType MyCar::getGearType() const
+string MyCar::getGearType() const
 {
 	return m_gearType;
 }

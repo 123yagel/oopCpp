@@ -14,51 +14,52 @@
 #define MAX_MADEIN_SIZE 40
 #define MAX_GEARTYPE_SIZE 40
 
-enum GearType
+/*enum GearType
 {
 	manualTransmission,
 	automaticTransmission,
 	semiautomaticTransmission,
 	general
 };
+*/
 
 class MyCar {
 private:
 	int m_carId;
-	string m_modelName;
+	std::string m_modelName;
 	int m_price;
 	int m_year;
-	string m_color;
+	std::string m_color;
 	int m_engineVolume;
-	GearType m_gearType;
-	string m_madeIn;
+	std::string m_gearType;
+	std::string m_madeIn;
 	int m_hand; //??? seconed first etc...
 	
 public:
 	//constructor
-	MyCar(int carId, string modelName, int price, int year, string color,
-		int engineVolume, GearType gearType, string madeIn, int hand);
+	MyCar(int carId, std::string modelName, int price, int year, std::string color,
+		int engineVolume, std::string gearType, std::string madeIn, int hand);
+	MyCar();
 	// copy constructor - not needed (the auto one is good for us)
 	// MyCar(const MyCar& car);
 	
 	void setCarId(const int& CarId);
-	void setModelName(const string& modelName);
+	void setModelName(const std::string& modelName);
 	void setPrice(const int& price);
 	void setYear(const int& year);
-	void setColor(const string& color);
+	void setColor(const std::string& color);
 	void setEngineVolume(const int& engineVolume);
-	void setGearType(GearType gearType);
-	void setMadeIn(const string& MadeIn);
+	void setGearType(const std::string& gearType);
+	void setMadeIn(const std::string& MadeIn);
 	void setHand(const int& hand);
-
-	int getCarId() const;
-	string getModelName()const;
+	int getCarId()const;
+	std::string getModelName()const;
 	int getPrice()const;
 	int getYear()const;
-	string getColor()const;
+	std::string getColor()const;
 	int getEngineVolume()const;
-	GearType getGearType()const;
-	string getMadeIn()const;
+	std::string getGearType()const;
+	std::string getMadeIn()const;
 	int getHand()const;
 
 	bool compare(MyCar& car);
