@@ -197,6 +197,7 @@ bool MyCar::compare(MyCar& car)
 void MyCar::print()
 {
 	std::cout << "the carId is " << m_carId << endl;
+	std::cout << "the model is: " << m_modelName << endl;//new
 	std::cout << "price of car is " << m_price << endl;
 	std::cout << "year is " << m_year << endl;
 	std::cout << "color is " << m_color << endl;
