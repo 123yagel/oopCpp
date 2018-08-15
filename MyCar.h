@@ -13,15 +13,6 @@
 #define MAX_MADEIN_SIZE 40
 #define MAX_GEARTYPE_SIZE 40
 
-/*enum GearType
-{
-	manualTransmission,
-	automaticTransmission,
-	semiautomaticTransmission,
-	general
-};
-*/
-
 class MyCar {
 private:
 	int m_carId;
@@ -40,6 +31,7 @@ public:
 		int engineVolume, std::string gearType, std::string madeIn, int hand);
 	MyCar();
 	// copy constructor - not needed (the auto one is good for us)
+	// אבל אולי צריך בכל זאת בגלל שככה כתוב?
 	// MyCar(const MyCar& car);
 	
 	void setCarId(const int& CarId);

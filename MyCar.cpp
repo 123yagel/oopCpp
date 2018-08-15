@@ -4,12 +4,9 @@
 // Orit Herman 206924466 09
 // Yagel Ashkenazi 208761296 05
 
-<<<<<<< HEAD
-=======
-#include "stdafx.h"
->>>>>>> 4749cf81ffc0715b28e64f2db0324d15819ffcbf
+//#include "stdafx.h"
 #include "MyCar.h"
-#include <string.h>
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -66,7 +63,6 @@ void MyCar::setModelName(const string& modelName)
 {
 	m_modelName = modelName;
 }
-
  
 //function that allows outer classes and functions to change m_price
 void MyCar::setPrice(const int& price)
@@ -84,13 +80,11 @@ void MyCar::setYear(const int& year)
 	m_year = year;
 }
 
-
 //function that allows outer classes and functions to change m_color
 void MyCar::setColor(const string& color)
 {
 	m_color = color;
 }
-
 
 //function that allows outer classes and functions to change m_engineVolume
 void MyCar::setEngineVolume(const int& engineVolume)
@@ -100,20 +94,17 @@ void MyCar::setEngineVolume(const int& engineVolume)
 	m_engineVolume = engineVolume;
 }
 
-
 //function that allows outer classes and functions to change m_gearType
 void MyCar::setGearType(const string& gearType)
 {
 	m_gearType = gearType;
 }
 
-
 //function that allows outer classes and functions to change m_madeIn
 void MyCar::setMadeIn(const string& madeIn)
 {
 	m_madeIn = madeIn;
 }
-
 
 //function that allows outer classes and functions to change m_hand
 void MyCar::setHand(const int& hand)
@@ -137,14 +128,11 @@ string MyCar::getModelName() const
 	return m_modelName;
 }
 
-
-
 //function that allows outer classes and functions to read the private var m_price
 int MyCar::getPrice() const
 {
 	return m_price;
 }
-
 
 //function that allows outer classes and functions to read the private var m_year
 int MyCar::getYear() const
@@ -152,13 +140,11 @@ int MyCar::getYear() const
 	return m_year;
 }
 
-
 //function that allows outer classes and functions to read the private var m_color
 string MyCar::getColor() const
 {
 	return m_color;
 }
-
 
 //function that allows outer classes and functions to read the private var m_engineVolume
 int MyCar::getEngineVolume() const
@@ -166,13 +152,11 @@ int MyCar::getEngineVolume() const
 	return m_engineVolume;
 }
 
-
 //function that allows outer classes and functions to read the private var m_gearType
 string MyCar::getGearType() const
 {
 	return m_gearType;
 }
-
 
 //function that allows outer classes and functions to read the private var m_madeIn
 string MyCar::getMadeIn() const
@@ -180,16 +164,11 @@ string MyCar::getMadeIn() const
 	return m_madeIn;
 }
 
-
-
 //function that allows outer classes and functions to read the private var m_hand
 int MyCar::getHand() const
 {
 	return m_hand;
 }
-
-
-
 
 
 bool MyCar::compare(MyCar& car)

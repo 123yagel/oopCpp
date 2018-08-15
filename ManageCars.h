@@ -19,7 +19,7 @@ public:
 	//Im not sure it should be a default
 	ManageCars();
 	~ManageCars();
-	void addCar();
+	void addCar(const MyCar& car);
 	void removeCar(int ID);
 	void CarsFromToYears(int fromYear, int toYear);
 	void CarsFromToPrices(int fromPrice, int toPrice);

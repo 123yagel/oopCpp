@@ -7,18 +7,13 @@
 #include "ManageCars.h"
 #include <iostream>
 #include "MyCar.h"
+
 using namespace std;
 
 
 ManageCars::ManageCars()
 {
-	m_cars[MAX_CARS];
-		for (int i = 0; i < MAX_CARS; i++)
-		{
-			m_cars[i] = MyCar();
-		}
 	m_carCount = 0;
-	
 	// all inits is in the .h file definition
 }
 
@@ -28,46 +23,9 @@ ManageCars::~ManageCars()
 	deleteAll();
 }
 
-void ManageCars::addCar()
+void ManageCars::addCar(const MyCar& car)
 {
-	int ID, price, year, engine, hand, usergear;
-	string model, color, madein, gear;
-	cout << "plese enter id car"<<endl;
-	cin >> ID;
-	cout << "plese enter modelname car" << endl;
-	cin >> model;
-	cout << "plese enter price car" << endl;
-	cin >> price;
-	cout << "plese enter year car" << endl;
-	cin >> year;
-	cout << "plese enter color car" << endl;
-	cin >> color;
-	cout << "plese enter engine car" << endl;
-	cin >> engine;
-	cout << "plese enter GEAR card, manualTransmission 1, automaticTransmission 2, semiautomaticTransmission 3, general 4" << endl;
-	cin >> usergear;
-	switch (usergear)
-	{
-	case 1:
-		gear = "manualTransmission";
-		break;
-	case 2:
-		gear = "automaticTransmission";
-		break;
-	case 3:
-		gear = "semiautomaticTransmission";
-		break;
-	case 4:
-		gear = "general";
-		break;
-	}
-
-	cout << "plese enter madein card" << endl;
-	cin >> madein;
-	cout << "plese enter hand card" << endl;
-	cin >> hand;
-	MyCar car(ID, model, price, year, color, engine, gear, madein, hand);
-	m_cars[m_carCount] = car; // copy made, by the auto copy const
+	m_cars[m_carCount] = car; 
 	m_carCount++;
 }
 

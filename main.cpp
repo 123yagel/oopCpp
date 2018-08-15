@@ -26,6 +26,54 @@ int printMenu()
 	cin >> number;
 	return number;
 }
+
+// ask the user for the detiles
+MyCar userGetCar() 
+{
+	int ID, price, year, engine, hand, usergear;
+	string model, color, madein, gear;
+	cout << "plese enter id car"<<endl;
+	cin >> ID;
+	cout << "plese enter model name" << endl;
+	cin >> model;
+	cout << "plese enter price" << endl;
+	cin >> price;
+	cout << "please enter year" << endl;
+	cin >> year;
+	cout << "please enter color" << endl;
+	cin >> color;
+	cout << "please enter engine volume" << endl;
+	cin >> engine;
+	cout << "please enter GEAR card:" << endl;
+	cout << "    1: manualTransmission" << endl;
+	cout << "    2: automaticTransmission" << endl;
+	cout << "    3: semiautomaticTransmission" << endl;
+	cout << "    4: other" << endl;
+	cin >> usergear;
+	switch (usergear)
+	{
+	case 1:
+		gear = "manualTransmission";
+		break;
+	case 2:
+		gear = "automaticTransmission";
+		break;
+	case 3:
+		gear = "semiautomaticTransmission";
+		break;
+	case 4:
+		cout << "which? "; // no endl.
+		cin >> gear;
+		break;
+	}
+	cout << "Made in? ";
+	cin >> madein;
+	cout << "which hand? ";
+	cin >> hand;
+	return MyCar(ID, model, price, year, color, engine, gear, madein, hand);
+}
+
+
 int main()
 {
 	// starting the program
@@ -47,7 +95,7 @@ int main()
 				case 1: //cout << "adding car"<<endl;
 			
 				//TODO: get car from the user here and send it to the market class.
-					market.addCar();
+					market.addCar(userGetCar());
 					break;
 
 				case 2: cout << "please enter the ID of the car you want to remove" << endl;
