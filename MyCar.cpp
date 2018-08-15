@@ -170,22 +170,23 @@ int MyCar::getHand() const
 	return m_hand;
 }
 
-
+// true if the argument car is newer
 bool MyCar::compare(MyCar& car)
 {
 	return (m_year < car.m_year);
 }
 
+// just print the car :)
 void MyCar::print()
 {
-	std::cout << "the carId is " << m_carId << endl;
-	std::cout << "the model is: " << m_modelName << endl;//new
-	std::cout << "price of car is " << m_price << endl;
-	std::cout << "year is " << m_year << endl;
-	std::cout << "color is " << m_color << endl;
-	std::cout << "Engine volume is " << m_engineVolume << endl;
-	std::cout << "Gear type is " << m_gearType << endl;
-	std::cout << "Made In " << m_madeIn << endl;
-	std::cout << m_hand << "th hand" << endl;
+	std::cout << "ID: " << m_carId << endl;
+	std::cout << "    Model: " << m_modelName << endl;//new
+	std::cout << "    Price: " << m_price << '$' << endl;
+	std::cout << "    Year: " << m_year << endl;
+	std::cout << "    Color: " << m_color << endl;
+	std::cout << "    Engine vol.: " << m_engineVolume << endl;
+	std::cout << "    Gear type: " << m_gearType << endl;
+	std::cout << "    Made In: " << m_madeIn << endl;
+	std::cout << "    " << m_hand << "th hand" << endl;
 }
 

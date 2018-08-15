@@ -12,19 +12,26 @@ using namespace std;
 
 int printMenu()
 {
-	cout << "please enter the number for your next action" << endl;
-	cout << "1: addCar" << endl;
-	cout << "2: removeCar" << endl;
-	cout << "3: CarsFromToYears" << endl;
-	cout << "4: CarsFromToPrices" << endl;
-	cout << "5: printCar" << endl;
-	cout << "6: delete all Cars" << endl;
-	cout << "7: printAll" << endl;
-	cout << "8: exit" << endl;
-	
+	cout << "Choose action:" << endl;
+	cout << "    1: addCar" << endl;
+	cout << "    2: removeCar" << endl;
+	cout << "    3: CarsFromToYears" << endl;
+	cout << "    4: CarsFromToPrices" << endl;
+	cout << "    5: printCar" << endl;
+	cout << "    6: delete all Cars" << endl;
+	cout << "    7: printAll" << endl;
+	cout << "    8: exit" << endl;
+	cout << ">>";
 	int number;
 	cin >> number;
 	return number;
+}
+
+// get a line from the user
+// using byref output so we doesn't create not-nedded copies of the string
+void userGetString(string& out) {
+	cin.ignore(INT_MAX, '\n'); // clear the end of the line
+	std::getline(cin, out);
 }
 
 // ask the user for the detiles
@@ -35,13 +42,13 @@ MyCar userGetCar()
 	cout << "plese enter id car"<<endl;
 	cin >> ID;
 	cout << "plese enter model name" << endl;
-	cin >> model;
+	userGetString(model);
 	cout << "plese enter price" << endl;
 	cin >> price;
 	cout << "please enter year" << endl;
 	cin >> year;
 	cout << "please enter color" << endl;
-	cin >> color;
+	userGetString(color);
 	cout << "please enter engine volume" << endl;
 	cin >> engine;
 	cout << "please enter GEAR card:" << endl;
@@ -63,11 +70,11 @@ MyCar userGetCar()
 		break;
 	case 4:
 		cout << "which? "; // no endl.
-		cin >> gear;
+		userGetString(gear);
 		break;
 	}
 	cout << "Made in? ";
-	cin >> madein;
+	userGetString(madein);
 	cout << "which hand? ";
 	cin >> hand;
 	return MyCar(ID, model, price, year, color, engine, gear, madein, hand);
@@ -77,7 +84,7 @@ MyCar userGetCar()
 int main()
 {
 	// starting the program
-	cout << "welcome to the car shop app" << endl;
+	cout << "Welcome to the car shop app :)" << endl << endl;
 	
 	//initialization of the class ManageCars which we would use through all the program.
 	ManageCars market;
@@ -98,42 +105,55 @@ int main()
 					market.addCar(userGetCar());
 					break;
 
-				case 2: cout << "please enter the ID of the car you want to remove" << endl;
+				case 2: 
 					int id;
+					cout << "ID: ";
 					cin >> id;
 					market.removeCar(id);
 					break;
 
-				case 3: cout << "please enter your minimum year" << endl;
+				case 3:
 					int year1, year2;
+					cout << "from: ";
 					cin >> year1;
-					cout << "please enter maximum year" << endl;
+					cout << "to: ";
 					cin >> year2;
+					cout << endl;
 					market.CarsFromToYears(year1, year2);
+					cout << endl;
 					break;
 				
-				case 4: cout << "please enter your minimum price and then your maximum price" << endl;
+				case 4: 
 					int price1, price2;
+					cout << "min: ";
 					cin >> price1;
+					cout << "max: ";
 					cin >> price2;
+					cout << endl;
 					market.CarsFromToPrices(price1, price2);
+					cout << endl;
 					break;
 				
-				case 5: cout << "please enter the ID of the car you want to print" << endl;
-					int id3;
-					cin >> id3;
-					market.printCar(id3);
+				case 5: 
+					//int id; // already defined in case 2
+					cout << "ID: ";
+					cin >> id; 
+					market.printCar(id);
 					break;
 				
-				case 6: cout << "deleteing car" << endl;
+				case 6: cout << "deleteing cars" << endl;
 					market.deleteAll();
 					break;
 				
-				case 7: cout << "printing all cars" << endl;
+				case 7: 
+					cout << "All cars in the store:" << endl;
+					cout << endl;
 					market.printAll();
+					cout << endl;
 					break;
 				
-				case 8: cout << "exit" << endl;
+				case 8: 
+					cout << "exiting..." << endl;
 					return 0;
 					break;
 				

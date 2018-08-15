@@ -10,13 +10,11 @@
 
 using namespace std;
 
-
 ManageCars::ManageCars()
 {
 	m_carCount = 0;
 	// all inits is in the .h file definition
 }
-
 
 ManageCars::~ManageCars()
 {
@@ -31,59 +29,49 @@ void ManageCars::addCar(const MyCar& car)
 
 void ManageCars::removeCar(int carId)
 {
-	for (int i = 0; i < m_carCount ; i++)//new
+	// we find the car to remove, and fill the space with the left cars
+	// as in `deleteAll`, we can't and not needed to `delete` them.
+	// that will not cause memory leaks.
+	// (if we add new cars it will delete the olds)
+
+	for (int i = 0; i < m_carCount ; i++)
 	{
 		if (m_cars[i].getCarId() == carId)
 		{
-			for (int j = 0; j < m_carCount-i ; j++)//I think this is a problem... this is my solution
+			// just move all next cars back 1 place:
+			for (int j = 0; j < m_carCount-i ; j++)
 			{
 				m_cars[i+j] = m_cars[i + j + 1];
 			}
-			//m_cars[i]=();
+			// and update the car counter:
 			m_carCount--;
 			return;
 		}
 	}
 }
 
-
-//new
-
 void ManageCars:: CarsFromToYears(int fromYear, int toYear)
 {
-
-for (int i = 0; i < m_carCount + 1; i++)
-	{
-		if ( (m_cars[i].getYear() > fromYear) &&  (m_cars[i].getYear() < toYear))
-		{
+	for (int i = 0; i < m_carCount; i++)
+		if ((m_cars[i].getYear() >= fromYear) && (m_cars[i].getYear() <= toYear)) {
 			m_cars[i].print();
+			cout << endl;
 		}
-	}
-
-
-
 }
 
-
-//new
 void ManageCars::CarsFromToPrices(int fromPrice, int toPrice)
 {
-
-	
-for (int i = 0; i < m_carCount + 1; i++)
-	{
-		if ( (m_cars[i].getPrice() > fromPrice) &&  (m_cars[i].getPrice() < toPrice))
+	for (int i = 0; i < m_carCount; i++)
+		if ((m_cars[i].getPrice() >= fromPrice) && (m_cars[i].getPrice() <= toPrice))
 		{
 			m_cars[i].print();
+			cout << endl;
 		}
-	}
-
-
 }
 
 void ManageCars::printCar(int carId)
 {
-	for (int i = 0; i < m_carCount; i++)//new indexing
+	for (int i = 0; i < m_carCount; i++)
 	{
 		if (m_cars[i].getCarId()== carId)
 		{
@@ -96,7 +84,7 @@ void ManageCars::printCar(int carId)
 
 void ManageCars::printAll()
 {
-	for (int i = 0; i < m_carCount; i++)//new
+	for (int i = 0; i < m_carCount; i++)
 	{
 		m_cars[i].print();
 		cout << endl;
@@ -105,9 +93,7 @@ void ManageCars::printAll()
 
 void ManageCars::deleteAll()
 {
-	for (int i = 0; i < m_carCount; i++)//new
-	{
-		//delete &(m_cars[i]);//it's wrong I made it a comment for now...
-	}
+	// since we doesn't use dynamic allocation we can't use `delete`.
+	// however, the destructors will run when we exit the program.
 	m_carCount = 0;
 }
