@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "stdafx.h"
 #include <string>
 
 #define MAX_MODELNAME_SIZE 40

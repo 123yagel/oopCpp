@@ -5,7 +5,6 @@
 // Yagel Ashkenazi 208761296 05
 
 #include "MyCar.h"
-#include "stdafx.h"
 #include <string.h>
 #include <iostream>
 

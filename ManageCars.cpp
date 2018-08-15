@@ -4,7 +4,6 @@
 // Orit Herman 206924466 09
 // Yagel Ashkenazi 208761296 05
 
-#include "stdafx.h"
 #include "ManageCars.h"
 #include <iostream>
 #include "MyCar.h"

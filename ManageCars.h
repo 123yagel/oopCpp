@@ -14,7 +14,7 @@ class ManageCars
 {
 private:
 	MyCar m_cars[MAX_CARS];
-	int m_carCount = 0;
+	int m_carCount;
 public:
 	//Im not sure it should be a default
 	ManageCars();
