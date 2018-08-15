@@ -11,29 +11,22 @@
 
 using namespace std;
 
-//Declaring a constructer function with default values to start MyCar objects.
-MyCar::MyCar(int carId = 0, string modelName = "Not set yet", int price = 0, int year = 0, string color = "Not set yet",
-	int engineVolume = 0, std::string gearType = "Not set yet", string madeIn = "Not set yet", int hand = 0) :
-		m_carId(carId),
-		m_price(price),
-		m_year(year), 
-		m_engineVolume(engineVolume), 
-		m_hand(hand),
-		m_modelName(modelName),
-		m_color(color),
-		m_gearType(gearType), 
-		m_madeIn(madeIn) {}
-
-MyCar::MyCar() {
-	int carId = 0;
-	string modelName = "Not set yet"; 
-	int price = 0; 
-	int year = 0; 
-	string color = "Not set yet";
-	int engineVolume = 0; 
-	string gearType = "Not set yet";
-	string madeIn = "Not set yet"; 
-	int hand = 0;
+// ctor, including def ctor (see .h file)
+MyCar::MyCar(int carId, std::string modelName, int price, int year,
+	std::string color,	int engineVolume, std::string gearType,
+	std::string madeIn, int hand)
+{
+	// using the setters so we varify input.
+	// setters can throw exceptions.
+	setCarId(carId);
+	setPrice(price);
+	setYear(year);
+	setEngineVolume(engineVolume);
+	setHand(hand);
+	setModelName(modelName);
+	setColor(color);
+	setGearType(gearType);
+	setMadeIn(madeIn);
 }
 	
 /*
@@ -53,7 +46,7 @@ MyCar::MyCar(const MyCar& car):
 //function that allows outer classes and functions to change m_carId
 void MyCar::setCarId(const int& carId)
 {
-	if (carId < 100000 || carId>99999999)
+	if (carId < 100000 || carId > 99999999)
 		throw "Invalid car id";
 	m_carId = carId;
 }
@@ -177,6 +170,7 @@ bool MyCar::compare(MyCar& car)
 }
 
 // just print the car :)
+// with indentation
 void MyCar::print()
 {
 	std::cout << "ID: " << m_carId << endl;

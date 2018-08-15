@@ -163,7 +163,7 @@ int main()
 		}
 		catch (string e)
 		{
-			cout << "error! " << e << endl;
+			cout << "***** error! " << e << "*****" << endl;
 			cout << "try again:" << endl;
 		}
 	}	// while true..
