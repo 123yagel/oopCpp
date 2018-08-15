@@ -4,6 +4,10 @@
 // Orit Herman 206924466 09
 // Yagel Ashkenazi 208761296 05
 
+<<<<<<< HEAD
+=======
+#include "stdafx.h"
+>>>>>>> 4749cf81ffc0715b28e64f2db0324d15819ffcbf
 #include "MyCar.h"
 #include <string.h>
 #include <iostream>
@@ -196,6 +200,7 @@ bool MyCar::compare(MyCar& car)
 void MyCar::print()
 {
 	std::cout << "the carId is " << m_carId << endl;
+	std::cout << "the model is: " << m_modelName << endl;//new
 	std::cout << "price of car is " << m_price << endl;
 	std::cout << "year is " << m_year << endl;
 	std::cout << "color is " << m_color << endl;

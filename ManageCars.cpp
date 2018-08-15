@@ -11,14 +11,14 @@ using namespace std;
 
 
 ManageCars::ManageCars()
-{/*
+{
 	m_cars[MAX_CARS];
-		for (int i = 0, i < MAX_CARS, i++)
+		for (int i = 0; i < MAX_CARS; i++)
 		{
 			m_cars[i] = MyCar();
 		}
 	m_carCount = 0;
-	*/
+	
 	// all inits is in the .h file definition
 }
 
@@ -73,13 +73,13 @@ void ManageCars::addCar()
 
 void ManageCars::removeCar(int carId)
 {
-	for (int i = 0; i < m_carCount + 1; i++)
+	for (int i = 0; i < m_carCount ; i++)//new
 	{
 		if (m_cars[i].getCarId() == carId)
 		{
-			for (; i < m_carCount - 2; i++)
+			for (int j = 0; j < m_carCount-i ; j++)//I think this is a problem... this is my solution
 			{
-				m_cars[i] = m_cars[i + 1];
+				m_cars[i+j] = m_cars[i + j + 1];
 			}
 			//m_cars[i]=();
 			m_carCount--;
@@ -125,7 +125,7 @@ for (int i = 0; i < m_carCount + 1; i++)
 
 void ManageCars::printCar(int carId)
 {
-	for (int i = 0; i < m_carCount + 1; i++)
+	for (int i = 0; i < m_carCount; i++)//new indexing
 	{
 		if (m_cars[i].getCarId()== carId)
 		{
@@ -138,7 +138,7 @@ void ManageCars::printCar(int carId)
 
 void ManageCars::printAll()
 {
-	for (int i = 0; i < m_carCount + 1; i++)
+	for (int i = 0; i < m_carCount; i++)//new
 	{
 		m_cars[i].print();
 		cout << endl;
@@ -147,9 +147,9 @@ void ManageCars::printAll()
 
 void ManageCars::deleteAll()
 {
-	for (int i = 0; i < m_carCount + 1; i++)
+	for (int i = 0; i < m_carCount; i++)//new
 	{
-		delete &(m_cars[i]);
+		//delete &(m_cars[i]);//it's wrong I made it a comment for now...
 	}
 	m_carCount = 0;
 }
