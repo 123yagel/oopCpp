@@ -37,20 +37,27 @@ void userGetString(string& out) {
 // ask the user for the detiles
 MyCar userGetCar() 
 {
+	MyCar car_ret; // so we use the setters
 	int ID, price, year, engine, hand, usergear;
 	string model, color, madein, gear;
-	cout << "plese enter id car"<<endl;
+	cout << "please enter id car"<<endl;
 	cin >> ID;
-	cout << "plese enter model name" << endl;
+	car_ret.setCarId(ID);
+	cout << "please enter model name" << endl;
 	userGetString(model);
-	cout << "plese enter price" << endl;
+	car_ret.setModelName(model);
+	cout << "please enter price" << endl;
 	cin >> price;
+	car_ret.setPrice(price);
 	cout << "please enter year" << endl;
 	cin >> year;
+	car_ret.setYear(year);
 	cout << "please enter color" << endl;
 	userGetString(color);
+	car_ret.setColor(color);
 	cout << "please enter engine volume" << endl;
 	cin >> engine;
+	car_ret.setEngineVolume(engine);
 	cout << "please enter GEAR card:" << endl;
 	cout << "    1: manualTransmission" << endl;
 	cout << "    2: automaticTransmission" << endl;
@@ -73,11 +80,14 @@ MyCar userGetCar()
 		userGetString(gear);
 		break;
 	}
+	car_ret.setGearType(gear);
 	cout << "Made in? ";
 	userGetString(madein);
+	car_ret.setMadeIn(madein);
 	cout << "which hand? ";
 	cin >> hand;
-	return MyCar(ID, model, price, year, color, engine, gear, madein, hand);
+	car_ret.setHand(hand);
+	return car_ret;
 }
 
 
@@ -99,9 +109,7 @@ int main()
 		{
 			switch (printMenu()) 
 			{
-				case 1: //cout << "adding car"<<endl;
-			
-				//TODO: get car from the user here and send it to the market class.
+				case 1:
 					market.addCar(userGetCar());
 					break;
 
@@ -113,24 +121,24 @@ int main()
 					break;
 
 				case 3:
-					int year1, year2;
+					int fromyear, toyear;
 					cout << "from: ";
-					cin >> year1;
+					cin >> fromyear;
 					cout << "to: ";
-					cin >> year2;
+					cin >> toyear;
 					cout << endl;
-					market.CarsFromToYears(year1, year2);
+					market.CarsFromToYears(fromyear, toyear);
 					cout << endl;
 					break;
 				
 				case 4: 
-					int price1, price2;
+					int pricefrom, priceto;
 					cout << "min: ";
-					cin >> price1;
+					cin >> pricefrom;
 					cout << "max: ";
-					cin >> price2;
+					cin >> priceto;
 					cout << endl;
-					market.CarsFromToPrices(price1, price2);
+					market.CarsFromToPrices(pricefrom, priceto);
 					cout << endl;
 					break;
 				

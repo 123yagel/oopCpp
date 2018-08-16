@@ -12,17 +12,21 @@ using namespace std;
 
 ManageCars::ManageCars()
 {
+	// the car array is static so it automaticly initialized
+	// and we re-init it when we add cars
 	m_carCount = 0;
-	// all inits is in the .h file definition
 }
 
 ManageCars::~ManageCars()
 {
-	deleteAll();
+	//deleteAll(); // not needed
+	// all of the cars is auto-destructed.
 }
 
 void ManageCars::addCar(const MyCar& car)
 {
+	if (m_carCount >= MAX_CARS)
+		throw "too much cars";
 	m_cars[m_carCount] = car; 
 	m_carCount++;
 }
@@ -48,6 +52,7 @@ void ManageCars::removeCar(int carId)
 			return;
 		}
 	}
+	throw "not found";
 }
 
 void ManageCars:: CarsFromToYears(int fromYear, int toYear)
@@ -76,10 +81,10 @@ void ManageCars::printCar(int carId)
 		if (m_cars[i].getCarId()== carId)
 		{
 			m_cars[i].print();
-			return;
+			return; // there is only one car
 		}
 	}
-	
+	throw "not found";
 }
 
 void ManageCars::printAll()

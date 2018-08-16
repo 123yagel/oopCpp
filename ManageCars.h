@@ -10,21 +10,39 @@
 
 #define MAX_CARS 30
 
+// represent a car store
 class ManageCars
 {
 private:
 	MyCar m_cars[MAX_CARS];
 	int m_carCount;
 public:
-	//Im not sure it should be a default
-	ManageCars();
+	ManageCars(); // with 0 cars
 	~ManageCars();
+
+	// add new car
+	// practicly, only MAX_CARS cars allowed
+	// can throw string "too much cars"
 	void addCar(const MyCar& car);
+
+	// remove car by id
+	// can throw string "not found"
 	void removeCar(int ID);
+
+	// prints to `cout`
 	void CarsFromToYears(int fromYear, int toYear);
+
+	// prints to `cout`
 	void CarsFromToPrices(int fromPrice, int toPrice);
+
+	// print car by id
+	// can throw string "not found"
 	void printCar(int id);
+
+	// delete all cars...
 	void deleteAll();
+
+	// print all cars to cout
 	void printAll();
 };
 

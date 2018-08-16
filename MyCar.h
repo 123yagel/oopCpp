@@ -24,10 +24,10 @@ private:
 public:
 	// constructor, including def ctor -> with default values
 	// can throw string exception when one of the parameters is out of range
-	MyCar(int carId = 0, string modelName = "Not set yet",
-		int price = 0, int year = 0, string color = "Not set yet",
-		int engineVolume = 0, std::string gearType = "Not set yet",
-		string madeIn = "Not set yet", int hand = 0);
+	MyCar(int carId = 0, const std::string modelName = "Not set yet",
+		int price = 0, int year = 0, const std::string color = "Not set yet",
+		int engineVolume = 0, const std::string gearType = "Not set yet",
+		const std::string madeIn = "Not set yet", int hand = 0);
 
 	//MyCar(); ^
 
@@ -36,7 +36,7 @@ public:
 		// אבל אולי צריך בכל זאת בגלל שככה כתוב?
 	
 
-		// setters:
+// setters:
 
 	// car id in range 100000 to 99999999
 	// or it will throw string exception
@@ -62,7 +62,7 @@ public:
 	// hand >= 0, or string exception will be thrown
 	void setHand(const int& hand);
 
-		// getters:
+// getters:
 
 	int getCarId() const;
 	std::string getModelName() const;

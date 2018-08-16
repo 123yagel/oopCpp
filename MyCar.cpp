@@ -12,22 +12,13 @@
 using namespace std;
 
 // ctor, including def ctor (see .h file)
-MyCar::MyCar(int carId, std::string modelName, int price, int year,
-	std::string color,	int engineVolume, std::string gearType,
-	std::string madeIn, int hand)
-{
-	// using the setters so we varify input.
-	// setters can throw exceptions.
-	setCarId(carId);
-	setPrice(price);
-	setYear(year);
-	setEngineVolume(engineVolume);
-	setHand(hand);
-	setModelName(modelName);
-	setColor(color);
-	setGearType(gearType);
-	setMadeIn(madeIn);
-}
+MyCar::MyCar(int carId, const std::string modelName, int price, int year,
+	const std::string color, int engineVolume, const std::string gearType,
+	const std::string madeIn, int hand)
+	:m_carId(carId), m_modelName(modelName), m_price(price), m_year(year),
+	m_color(color), m_engineVolume(engineVolume), m_gearType(gearType),
+	m_madeIn(madeIn), m_hand(hand)
+	{}
 	
 /*
 MyCar::MyCar(const MyCar& car):
@@ -46,6 +37,7 @@ MyCar::MyCar(const MyCar& car):
 //function that allows outer classes and functions to change m_carId
 void MyCar::setCarId(const int& carId)
 {
+	throw "e";
 	if (carId < 100000 || carId > 99999999)
 		throw "Invalid car id";
 	m_carId = carId;
