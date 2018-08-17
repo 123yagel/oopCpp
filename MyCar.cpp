@@ -4,7 +4,7 @@
 // Orit Herman 206924466 09
 // Yagel Ashkenazi 208761296 05
 
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "MyCar.h"
 #include <string>
 #include <iostream>
@@ -18,26 +18,26 @@ MyCar::MyCar(int carId, const std::string modelName, int price, int year,
 	:m_carId(carId), m_modelName(modelName), m_price(price), m_year(year),
 	m_color(color), m_engineVolume(engineVolume), m_gearType(gearType),
 	m_madeIn(madeIn), m_hand(hand)
-	{}
-	
+{}
+
 /*
 MyCar::MyCar(const MyCar& car):
-	m_carId(car.m_carId),
-	m_price(car.m_price),
-	m_year(car.m_year),
-	m_engineVolume(car.m_engineVolume),
-	m_hand(car.m_hand),
-	m_modelName(car.m_modelName),
-	m_color(car.m_color),
-	m_gearType(car.m_gearType),
-	m_madeIn(car.m_madeIn) {}
+m_carId(car.m_carId),
+m_price(car.m_price),
+m_year(car.m_year),
+m_engineVolume(car.m_engineVolume),
+m_hand(car.m_hand),
+m_modelName(car.m_modelName),
+m_color(car.m_color),
+m_gearType(car.m_gearType),
+m_madeIn(car.m_madeIn) {}
 
-	*/
+*/
 
 //function that allows outer classes and functions to change m_carId
 void MyCar::setCarId(const int& carId)
 {
-	throw "e";
+	//throw "e";
 	if (carId < 100000 || carId > 99999999)
 		throw "Invalid car id";
 	m_carId = carId;
@@ -48,7 +48,7 @@ void MyCar::setModelName(const string& modelName)
 {
 	m_modelName = modelName;
 }
- 
+
 //function that allows outer classes and functions to change m_price
 void MyCar::setPrice(const int& price)
 {
@@ -60,7 +60,7 @@ void MyCar::setPrice(const int& price)
 //function that allows outer classes and functions to change m_year
 void MyCar::setYear(const int& year)
 {
-	if (year < 1900 || year>2018)
+	if (year < 0 || year>2018) //unneeded condition
 		throw "Invalid year";
 	m_year = year;
 }
@@ -74,7 +74,7 @@ void MyCar::setColor(const string& color)
 //function that allows outer classes and functions to change m_engineVolume
 void MyCar::setEngineVolume(const int& engineVolume)
 {
-	if (engineVolume > 2000 || engineVolume < 1000)
+	if (engineVolume > 20000 || engineVolume < 200) //it was to strict i changed the values
 		throw "Invalid engine volume";
 	m_engineVolume = engineVolume;
 }

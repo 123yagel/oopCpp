@@ -20,7 +20,7 @@ private:
 	std::string m_gearType;
 	std::string m_madeIn;
 	int m_hand; // 0 = new, 1 = 1st hand, etc.
-	
+
 public:
 	// constructor, including def ctor -> with default values
 	// can throw string exception when one of the parameters is out of range
@@ -32,11 +32,11 @@ public:
 	//MyCar(); ^
 
 	// MyCar(const MyCar& car);
-		// copy constructor - not needed (the auto one is good for us)
-		// אבל אולי צריך בכל זאת בגלל שככה כתוב?
-	
+	// copy constructor - not needed (the auto one is good for us)
+	// אבל אולי צריך בכל זאת בגלל שככה כתוב?
 
-// setters:
+
+	// setters:
 
 	// car id in range 100000 to 99999999
 	// or it will throw string exception
@@ -62,7 +62,7 @@ public:
 	// hand >= 0, or string exception will be thrown
 	void setHand(const int& hand);
 
-// getters:
+	// getters:
 
 	int getCarId() const;
 	std::string getModelName() const;

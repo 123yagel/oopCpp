@@ -3,7 +3,7 @@
 // Baruch Rosen 208920884 05
 // Orit Herman 206924466 09
 // Yagel Ashkenazi 208761296 05
-
+#include "stdafx.h"
 #include "ManageCars.h"
 #include <iostream>
 #include "MyCar.h"
@@ -27,7 +27,7 @@ void ManageCars::addCar(const MyCar& car)
 {
 	if (m_carCount >= MAX_CARS)
 		throw "too much cars";
-	m_cars[m_carCount] = car; 
+	m_cars[m_carCount] = car;
 	m_carCount++;
 }
 
@@ -38,14 +38,14 @@ void ManageCars::removeCar(int carId)
 	// that will not cause memory leaks.
 	// (if we add new cars it will delete the olds)
 
-	for (int i = 0; i < m_carCount ; i++)
+	for (int i = 0; i < m_carCount; i++)
 	{
 		if (m_cars[i].getCarId() == carId)
 		{
 			// just move all next cars back 1 place:
-			for (int j = 0; j < m_carCount-i ; j++)
+			for (int j = 0; j < m_carCount - i; j++)
 			{
-				m_cars[i+j] = m_cars[i + j + 1];
+				m_cars[i + j] = m_cars[i + j + 1];
 			}
 			// and update the car counter:
 			m_carCount--;
@@ -55,7 +55,7 @@ void ManageCars::removeCar(int carId)
 	throw "not found";
 }
 
-void ManageCars:: CarsFromToYears(int fromYear, int toYear)
+void ManageCars::CarsFromToYears(int fromYear, int toYear)
 {
 	for (int i = 0; i < m_carCount; i++)
 		if ((m_cars[i].getYear() >= fromYear) && (m_cars[i].getYear() <= toYear)) {
@@ -78,7 +78,7 @@ void ManageCars::printCar(int carId)
 {
 	for (int i = 0; i < m_carCount; i++)
 	{
-		if (m_cars[i].getCarId()== carId)
+		if (m_cars[i].getCarId() == carId)
 		{
 			m_cars[i].print();
 			return; // there is only one car
