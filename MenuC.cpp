@@ -1,22 +1,17 @@
-
 //MenuC.cpp
+//**** Targil 1 *** 
+// Baruch Rosen 208920884 05
+// Orit Herman 206924466 09
+// Yagel Ashkenazi 208761296 05
+
 #include "stdafx.h"
 #include "MenuC.h"
-#include <iostream>
 #include "MyCar.h"
 #include "ManageCars.h"
+#include <iostream>
 #include<string>
 using namespace std;
 
-
-MenuC::MenuC()
-{
-}
-
-
-MenuC::~MenuC()
-{
-}
 
 void MenuC::run()
 {
@@ -24,8 +19,7 @@ void MenuC::run()
 	// starting the program
 	cout << "Welcome to the car shop app :)" << endl << endl;
 	
-	int condition = 1;
-	while (condition == 1) {
+	while (true) {
 		try
 		{
 			switch (printMenu())
@@ -83,11 +77,11 @@ void MenuC::run()
 
 			case 8:
 				cout << "exiting..." << endl;
-				condition = -1;
-				break;
+				return;
+				// break;
 
 			default:
-				condition = -1;
+				// another chance
 				break;
 			}
 		}
@@ -117,10 +111,12 @@ int MenuC::printMenu()
 	return number;
 }
 
-void MenuC::userGetString(string & out)
+std::string MenuC::userGetString()
 {
+	std::string out
 	cin.ignore(INT_MAX, '\n'); // clear the end of the line
 	std::getline(cin, out);
+	return out;
 }
 
 MyCar MenuC::userGetCar()
@@ -132,7 +128,7 @@ MyCar MenuC::userGetCar()
 	cin >> ID;
 	car_ret.setCarId(ID);
 	cout << "please enter model name" << endl;
-	userGetString(model);
+	model = userGetString();
 	car_ret.setModelName(model);
 	cout << "please enter price" << endl;
 	cin >> price;
@@ -141,7 +137,7 @@ MyCar MenuC::userGetCar()
 	cin >> year;
 	car_ret.setYear(year);
 	cout << "please enter color" << endl;
-	userGetString(color);
+	color = userGetString();
 	car_ret.setColor(color);
 	cout << "please enter engine volume" << endl;
 	cin >> engine;
@@ -165,12 +161,12 @@ MyCar MenuC::userGetCar()
 		break;
 	case 4:
 		cout << "which? "; // no endl.
-		userGetString(gear);
+		gear = userGetString();
 		break;
 	}
 	car_ret.setGearType(gear);
 	cout << "Made in? ";
-	userGetString(madein);
+	madein = userGetString();
 	car_ret.setMadeIn(madein);
 	cout << "which hand? ";
 	cin >> hand;
