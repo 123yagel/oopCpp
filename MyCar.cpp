@@ -20,20 +20,6 @@ MyCar::MyCar(int carId, const std::string modelName, int price, int year,
 	m_madeIn(madeIn), m_hand(hand)
 {}
 
-/*
-MyCar::MyCar(const MyCar& car):
-m_carId(car.m_carId),
-m_price(car.m_price),
-m_year(car.m_year),
-m_engineVolume(car.m_engineVolume),
-m_hand(car.m_hand),
-m_modelName(car.m_modelName),
-m_color(car.m_color),
-m_gearType(car.m_gearType),
-m_madeIn(car.m_madeIn) {}
-
-*/
-
 //function that allows outer classes and functions to change m_carId
 void MyCar::setCarId(const int& carId)
 {
