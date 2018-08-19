@@ -101,11 +101,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ManageCars.cpp" />
+    <ClCompile Include="MenuC.cpp" />
     <ClCompile Include="MyCar.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ManageCars.h" />
+    <ClInclude Include="MenuC.h" />
     <ClInclude Include="MyCar.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

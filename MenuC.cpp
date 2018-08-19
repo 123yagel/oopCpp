@@ -18,7 +18,7 @@ void MenuC::run()
 	
 	// starting the program
 	cout << "Welcome to the car shop app :)" << endl << endl;
-	
+	std::string id;
 	while (true) {
 		try
 		{
@@ -29,7 +29,6 @@ void MenuC::run()
 				break;
 
 			case 2:
-				int id;
 				cout << "ID: ";
 				cin >> id;
 				market.removeCar(id);
@@ -58,7 +57,7 @@ void MenuC::run()
 				break;
 
 			case 5:
-				//int id; // already defined in case 2
+				//std::string id; // already defined in case 2
 				cout << "ID: ";
 				cin >> id;
 				market.printCar(id);
@@ -113,7 +112,7 @@ int MenuC::printMenu()
 
 std::string MenuC::userGetString()
 {
-	std::string out
+	std::string out;
 	cin.ignore(INT_MAX, '\n'); // clear the end of the line
 	std::getline(cin, out);
 	return out;
@@ -122,8 +121,8 @@ std::string MenuC::userGetString()
 MyCar MenuC::userGetCar()
 {
 	MyCar car_ret; // so we use the setters
-	int ID, price, year, engine, hand, usergear;
-	string model, color, madein, gear;
+	int price, year, engine, hand, usergear;
+	string ID, model, color, madein, gear;
 	cout << "please enter id car" << endl;
 	cin >> ID;
 	car_ret.setCarId(ID);

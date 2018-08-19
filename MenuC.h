@@ -22,7 +22,7 @@ private:
 public:
 	void run();
 	int printMenu();
-	std::strint userGetString();
+	std::string userGetString();
 	MyCar userGetCar();
 };
 

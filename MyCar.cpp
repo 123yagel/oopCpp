@@ -12,20 +12,34 @@
 using namespace std;
 
 // ctor, including def ctor (see .h file)
-MyCar::MyCar(int carId, const std::string modelName, int price, int year,
+MyCar::MyCar(std::string carId, const std::string modelName, int price, int year,
 	const std::string color, int engineVolume, const std::string gearType,
 	const std::string madeIn, int hand)
-	:m_carId(carId), m_modelName(modelName), m_price(price), m_year(year),
-	m_color(color), m_engineVolume(engineVolume), m_gearType(gearType),
-	m_madeIn(madeIn), m_hand(hand)
-{}
+	: m_modelName(modelName), m_color(color), m_engineVolume(engineVolume), m_gearType(gearType), m_madeIn(madeIn)
+{
+	if (carId.length() != 7 && carId.length() != 8)
+		throw "invalid car id";
+	try{ std::stoi(carId); }		// check for numerical value. if can't, invalid_argument exception will be thrown.
+	catch(...){ throw "invalid car id"; }
+	if (price < 0)
+		throw "negative price";
+	if (year > 2018 || year < 1500)
+		throw "invalid year";
+	if (hand < 0)
+		throw "negative hand";
+	m_carId = carId;
+	m_price = price;
+	m_year = year;
+	m_hand = hand;
+}
 
 //function that allows outer classes and functions to change m_carId
-void MyCar::setCarId(const int& carId)
+void MyCar::setCarId(const std::string& carId)
 {
-	//throw "e";
-	if (carId < 100000 || carId > 99999999)
-		throw "Invalid car id";
+	if (carId.length() != 7 && carId.length() != 8)
+		throw "invalid car id";
+	try{ std::stoi(carId); }		// check for numerical value. if can't, invalid_argument exception will be thrown.
+	catch(...){ throw "invalid car id"; }
 	m_carId = carId;
 }
 
@@ -88,7 +102,7 @@ void MyCar::setHand(const int& hand)
 
 
 //function that allows outer classes and functions to read the private var m_carId
-int MyCar::getCarId() const
+std::string MyCar::getCarId() const
 {
 	return m_carId;
 }

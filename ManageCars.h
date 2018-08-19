@@ -27,7 +27,7 @@ public:
 
 	// remove car by id
 	// can throw string "not found"
-	void removeCar(int ID);
+	void removeCar(std::string ID);
 
 	// prints to `cout`
 	void CarsFromToYears(int fromYear, int toYear);
@@ -37,7 +37,7 @@ public:
 
 	// print car by id
 	// can throw string "not found"
-	void printCar(int id);
+	void printCar(std::string id);
 
 	// delete all cars...
 	void deleteAll();

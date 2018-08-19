@@ -11,7 +11,7 @@
 // represent a car in a store
 class MyCar {
 private:
-	int m_carId;
+	std::string m_carId;
 	std::string m_modelName;
 	int m_price;
 	int m_year;
@@ -24,7 +24,7 @@ private:
 public:
 	// constructor, including def ctor -> with default values
 	// can throw string exception when one of the parameters is out of range
-	MyCar(int carId = 0, const std::string modelName = "Not set yet",
+	MyCar(std::string carId = "0000000", const std::string modelName = "Not set yet",
 		int price = 0, int year = 0, const std::string color = "Not set yet",
 		int engineVolume = 0, const std::string gearType = "Not set yet",
 		const std::string madeIn = "Not set yet", int hand = 0);
@@ -40,7 +40,7 @@ public:
 
 	// car id in range 100000 to 99999999
 	// or it will throw string exception
-	void setCarId(const int& CarId);
+	void setCarId(const std::string& CarId);
 
 	void setModelName(const std::string& modelName);
 
@@ -64,7 +64,7 @@ public:
 
 	// getters:
 
-	int getCarId() const;
+	std::string getCarId() const;
 	std::string getModelName() const;
 	int getPrice() const;
 	int getYear() const;

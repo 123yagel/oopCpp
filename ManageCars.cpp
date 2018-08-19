@@ -27,11 +27,11 @@ void ManageCars::addCar(const MyCar& car)
 {
 	if (m_carCount >= MAX_CARS)
 		throw "too much cars";
-	m_cars[m_carCount] = car;
+	m_cars[m_carCount] = car; // copy ctor here
 	m_carCount++;
 }
 
-void ManageCars::removeCar(int carId)
+void ManageCars::removeCar(std::string carId)
 {
 	// we find the car to remove, and fill the space with the left cars
 	// as in `deleteAll`, we can't and not needed to `delete` them.
@@ -74,7 +74,7 @@ void ManageCars::CarsFromToPrices(int fromPrice, int toPrice)
 		}
 }
 
-void ManageCars::printCar(int carId)
+void ManageCars::printCar(std::string carId)
 {
 	for (int i = 0; i < m_carCount; i++)
 	{
