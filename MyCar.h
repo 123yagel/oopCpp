@@ -33,7 +33,7 @@ public:
 
 	// MyCar(const MyCar& car);
 	// copy constructor - not needed (the auto one is good for us)
-	// אבל אולי צריך בכל זאת בגלל שככה כתוב?
+	
 
 
 	// setters:
