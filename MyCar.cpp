@@ -12,7 +12,7 @@
 using namespace std;
 
 // ctor, including def ctor (see .h file)
-MyCar::MyCar(int carId, const std::string modelName, int price, int year,
+MyCar::MyCar(std::string carId, const std::string modelName, int price, int year,
 	const std::string color, int engineVolume, const std::string gearType,
 	const std::string madeIn, int hand)
 	:m_carId(carId), m_modelName(modelName), m_price(price), m_year(year),
@@ -21,11 +21,11 @@ MyCar::MyCar(int carId, const std::string modelName, int price, int year,
 {}
 
 //function that allows outer classes and functions to change m_carId
-void MyCar::setCarId(const int& carId)
+void MyCar::setCarId(const string& carId)
 {
 	//throw "e";
-	if (carId < 100000 || carId > 99999999)
-		throw "Invalid car id";
+	//if (carId < 100000 || carId > 99999999)
+		//throw "Invalid car id";
 	m_carId = carId;
 }
 
@@ -60,7 +60,7 @@ void MyCar::setColor(const string& color)
 //function that allows outer classes and functions to change m_engineVolume
 void MyCar::setEngineVolume(const int& engineVolume)
 {
-	if (engineVolume > 20000 || engineVolume < 200) //it was to strict i changed the values
+	if ( engineVolume < 200) //it was too strict i changed the values
 		throw "Invalid engine volume";
 	m_engineVolume = engineVolume;
 }
@@ -88,7 +88,7 @@ void MyCar::setHand(const int& hand)
 
 
 //function that allows outer classes and functions to read the private var m_carId
-int MyCar::getCarId() const
+std::string MyCar::getCarId() const
 {
 	return m_carId;
 }

@@ -14,11 +14,11 @@ using namespace std;
 
 int main()
 {
-	
+
 
 	//initialization of the class MenuC which we would use through all the program to help the user.
 	MenuC menuMangment;
-	
+
 	//starting the program
 	menuMangment.run();
 
