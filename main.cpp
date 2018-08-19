@@ -14,20 +14,13 @@ using namespace std;
 
 int main()
 {
-	// starting the program
-	cout << "Welcome to the car shop app :)" << endl << endl;
+	
 
-	//initialization of the class ManageCars which we would use through all the program.
-	//ManageCars market;
-
+	//initialization of the class MenuC which we would use through all the program to help the user.
 	MenuC menuMangment;
+	//starting the program
 	menuMangment.run();
 
-	/*
-	The user would make his decisions using the manul until he
-	Decides to finish and exit. The menu with the differnt options
-	would repeat using a while loop.
-	*/
 	
 	return 0; // just for fun :)
 }

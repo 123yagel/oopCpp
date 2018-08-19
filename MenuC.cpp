@@ -20,6 +20,10 @@ MenuC::~MenuC()
 
 void MenuC::run()
 {
+	
+	// starting the program
+	cout << "Welcome to the car shop app :)" << endl << endl;
+	
 	int condition = 1;
 	while (condition == 1) {
 		try
