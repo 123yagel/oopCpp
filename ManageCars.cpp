@@ -29,7 +29,6 @@ ManageCars::~ManageCars()
 
 void ManageCars::addCar(const MyCar& car)
 {
-	
 	try
 	{
 		if (m_carCount >= MAX_CARS)
@@ -44,7 +43,6 @@ void ManageCars::addCar(const MyCar& car)
 	
 	m_cars[m_carCount] = car;
 	m_carCount++;
-	
 }
 
 
@@ -151,11 +149,6 @@ void ManageCars::compareCars()
 		cout << "the first car is older" << endl;
 	}
 	
-}
-
-void ManageCars::reduceCarsNum()
-{
-	m_carCount--;
 }
 
 void ManageCars::deleteAll()

@@ -49,6 +49,5 @@ public:
 
 	void compareCars();// here !!!!!!!!!!!!!!!!!!!!!!!!
 
-	void reduceCarsNum();
 };
 
