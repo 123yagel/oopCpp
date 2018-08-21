@@ -7,7 +7,9 @@
 // main.cpp
 //**** Targil 1 *** 
 
-#include "stdafx.h"
+//#include "stdafx.h"
+#pragma once
+
 #include <iostream>
 #include "MyCar.h"
 #include "ManageCars.h"
@@ -17,8 +19,6 @@ using namespace std;
 
 int main()
 {
-
-
 	//initialization of the class MenuC which we would use through all the program to help the user.
 	MenuC menuMangment;
 

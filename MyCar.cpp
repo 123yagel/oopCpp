@@ -6,10 +6,11 @@ Yagel Ashkenazi 208761296 05
 // MyCar.cpp
 // Targil1
 
-#include "stdafx.h"
-#include "MyCar.h"
+//#include "stdafx.h"
 #include <string>
 #include <iostream>
+
+#include "MyCar.h"
 
 using namespace std;
 
@@ -223,11 +224,9 @@ int MyCar::getHand() const
 }
 
 // true if the argument car is newer
-bool MyCar::compare(int firstCar,int secYear)
+bool MyCar::compare(MyCar otherCar)
 {
-	if (secYear < firstCar)
-		cout << "the " <<endl;
-	return (secYear < firstCar);
+	return (otherCar.m_year > this->m_year);
 }
 
 
