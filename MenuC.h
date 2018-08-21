@@ -1,8 +1,11 @@
+/*
+Baruch Rosen 208920884 05
+Orit Herman 206924466 09
+Yagel Ashkenazi 208761296 05
+*/
+
 //MenuC.h
 //**** Targil 1 *** 
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
 
 #pragma once
 
@@ -12,6 +15,7 @@
 #include "ManageCars.h"
 #include<string>
 #include <iostream>
+#include <vector>
 
 
 class MenuC
@@ -24,6 +28,7 @@ public:
 	int printMenu();
 	std::string userGetString();
 	MyCar userGetCar();
+	void printArray(std::vector<int>);
 };
 
 

@@ -31,7 +31,11 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MenuC.cpp">
+<<<<<<< HEAD
       <Filter>Header Files</Filter>
+=======
+      <Filter>Source Files</Filter>
+>>>>>>> adding-class-for-menu
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

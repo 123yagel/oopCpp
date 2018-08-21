@@ -1,12 +1,15 @@
+/*
+Baruch Rosen 208920884 05
+Orit Herman 206924466 09
+Yagel Ashkenazi 208761296 05
+*/
 // ManageCars.h
 // Targil1
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
 
 #pragma once
 
 #include "MyCar.h"
+#include <vector>
 
 #define MAX_CARS 30
 
@@ -29,11 +32,9 @@ public:
 	// can throw string "not found"
 	void removeCar(std::string ID);
 
-	// prints to `cout`
-	void CarsFromToYears(int fromYear, int toYear);
+	std::vector<int> CarsFromToYears(int fromYear, int toYear);
 
-	// prints to `cout`
-	void CarsFromToPrices(int fromPrice, int toPrice);
+	std::vector<int> CarsFromToPrices(int fromPrice, int toPrice);
 
 	// print car by id
 	// can throw string "not found"

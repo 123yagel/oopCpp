@@ -1,8 +1,11 @@
+/*
+Baruch Rosen 208920884 05
+Orit Herman 206924466 09
+Yagel Ashkenazi 208761296 05
+*/
+
 // MyCar.h
 // Targil1
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
 
 #pragma once
 
@@ -21,26 +24,32 @@ private:
 	std::string m_madeIn;
 	int m_hand; // 0 = new, 1 = 1st hand, etc.
 
+	std::string id2string();
+
 public:
 	// constructor, including def ctor -> with default values
+<<<<<<< HEAD
 	// can throw string exception when one of the parameters is out of range
 	MyCar(std::string carId = "0000000", const std::string modelName = "Not set yet",
+=======
+	
+	MyCar(int carId = 0, const std::string modelName = "Not set yet",
+>>>>>>> adding-class-for-menu
 		int price = 0, int year = 0, const std::string color = "Not set yet",
 		int engineVolume = 0, const std::string gearType = "Not set yet",
 		const std::string madeIn = "Not set yet", int hand = 0);
-
-	//MyCar(); ^
-
-	// MyCar(const MyCar& car);
-	// copy constructor - not needed (the auto one is good for us)
-	// אבל אולי צריך בכל זאת בגלל שככה כתוב?
 
 
 	// setters:
 
 	// car id in range 100000 to 99999999
+<<<<<<< HEAD
 	// or it will throw string exception
 	void setCarId(const std::string& CarId);
+=======
+	
+	void setCarId(const int& CarId);
+>>>>>>> adding-class-for-menu
 
 	void setModelName(const std::string& modelName);
 
@@ -75,7 +84,7 @@ public:
 	int getHand() const;
 
 	// true if the argument car is newer
-	bool compare(MyCar& car);
+	bool compare(MyCar otherCar);
 
 	// print car detailes to `cout`
 	void print();
