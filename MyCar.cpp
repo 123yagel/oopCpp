@@ -14,6 +14,19 @@ Yagel Ashkenazi 208761296 05
 using namespace std;
 
 // ctor, including def ctor (see .h file)
+/*************************************************************************
+* שם הפונקציה :name function *
+* הסבר על הקלט לפונקציה :Input The *
+* הסבר על הפלט של הפונקציה :output The *
+* דרך הביצוע בצורה כללית :operation Function The *
+*************************************************************************/
+
+/*
+function name: MyCar
+The input: none
+The output: none
+the function operation: preducing a default car
+*/
 MyCar::MyCar(int carId, const std::string modelName, int price, int year,
 	const std::string color, int engineVolume, const std::string gearType,
 	const std::string madeIn, int hand)
@@ -22,7 +35,12 @@ MyCar::MyCar(int carId, const std::string modelName, int price, int year,
 	m_madeIn(madeIn), m_hand(hand)
 {}
 
-//function that allows outer classes and functions to change m_carId
+/*
+function name: setCarId
+The input: int
+The output: int
+the function operation: allow access to the ID
+*/
 void MyCar::setCarId(const int& carId)
 {
 	
@@ -32,13 +50,25 @@ void MyCar::setCarId(const int& carId)
 	m_carId = carId;
 }
 
-//function that allows outer classes and functions to change m_modelName
+/*
+function name: setModelName
+The input: string
+The output: string
+the function operation: allow access to the model name
+*/
+
 void MyCar::setModelName(const string& modelName)
 {
 	m_modelName = modelName;
 }
 
-//function that allows outer classes and functions to change m_price
+/*
+function name: setPrice
+The input: int
+The output: int
+the function operation: allow access to the price
+*/
+
 void MyCar::setPrice(const int& price)
 {
 	if (price < 0)
@@ -47,7 +77,13 @@ void MyCar::setPrice(const int& price)
 	m_price = price;
 }
 
-//function that allows outer classes and functions to change m_year
+/*
+function name: setYear
+The input: int
+The output: int
+the function operation: allow access to the year
+*/
+
 void MyCar::setYear(const int& year)
 {
 	if (year < 0 || year>2018) //unneeded condition
@@ -55,13 +91,25 @@ void MyCar::setYear(const int& year)
 	m_year = year;
 }
 
-//function that allows outer classes and functions to change m_color
+/*
+function name: setColor
+The input: string
+The output: string
+the function operation: allow access to the color
+*/
+
 void MyCar::setColor(const string& color)
 {
 	m_color = color;
 }
 
-//function that allows outer classes and functions to change m_engineVolume
+/*
+function name: setEngineVolume
+The input: int
+The output: int
+the function operation: allow access to the engine vol.
+*/
+
 void MyCar::setEngineVolume(const int& engineVolume)
 {
 	if (engineVolume < 200) //it was too strict i changed the values
@@ -70,19 +118,35 @@ void MyCar::setEngineVolume(const int& engineVolume)
 	m_engineVolume = engineVolume;
 }
 
-//function that allows outer classes and functions to change m_gearType
+/*
+function name: setCarId
+The input: string
+The output: string
+the function operation: allow access to the gearType
+*/
+
 void MyCar::setGearType(const string& gearType)
 {
 	m_gearType = gearType;
 }
 
-//function that allows outer classes and functions to change m_madeIn
+/*
+function name: setMadeIn
+The input: string
+The output: string
+the function operation: allow access to the madeIn
+*/
 void MyCar::setMadeIn(const string& madeIn)
 {
 	m_madeIn = madeIn;
 }
 
-//function that allows outer classes and functions to change m_hand
+/*
+function name: setHand
+The input: int
+The output: int
+the function operation: allow access to the hand
+*/
 void MyCar::setHand(const int& hand)
 {
 	if (hand < 0)
@@ -93,13 +157,24 @@ void MyCar::setHand(const int& hand)
 
 
 
-//function that allows outer classes and functions to read the private var m_carId
+/*
+function name: getCarId
+The input: none
+The output: int
+the function operation: allow access to the ID
+*/
 int MyCar::getCarId() const
 {
 	return m_carId;
 }
 
-//function that allows outer classes and functions to read the private var m_modelName
+/*
+function name: getModelName
+The input: none
+The output: string
+the function operation: allow access to the model name
+*/
+
 string MyCar::getModelName() const
 {
 	return m_modelName;
