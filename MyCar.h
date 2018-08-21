@@ -72,7 +72,7 @@ public:
 	int getHand() const;
 
 	// true if the argument car is newer
-	bool compare(MyCar& car);
+	bool compare(int firstCar, int secYear);
 
 	// print car detailes to `cout`
 	void print();

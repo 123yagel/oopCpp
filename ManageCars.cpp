@@ -114,6 +114,45 @@ void ManageCars::printAll()
 	}
 }
 
+void ManageCars::compareCars()
+{
+	int ID1, ID2;
+	bool ans;
+	int firstYear,secYear;
+	cout << "please enter the first car ID you want to compare" << endl;
+	cin >> ID1;
+	cout << "please enter the seconed car ID" << endl;
+	cin >> ID2;
+
+	for (int f = 0; f < m_carCount; f++)
+	{
+		if (ID1 == m_cars[f].getCarId())
+		{
+			secYear = m_cars[f].getYear();
+		}
+		
+	}
+	
+	for (int g = 0; g < m_carCount; g++)
+	{
+		if (ID2 == m_cars[g].getCarId())
+		{
+			firstYear = m_cars[g].getYear();
+			ans = m_cars[g].compare(firstYear, secYear);
+		}
+
+	}
+	if (ans == true)
+	{
+		cout << "the second car is older" << endl;
+	}
+	else
+	{
+		cout << "the first car is older" << endl;
+	}
+	
+}
+
 void ManageCars::reduceCarsNum()
 {
 	m_carCount--;

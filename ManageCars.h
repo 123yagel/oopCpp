@@ -47,6 +47,8 @@ public:
 	// print all cars to cout
 	void printAll();
 
+	void compareCars();// here !!!!!!!!!!!!!!!!!!!!!!!!
+
 	void reduceCarsNum();
 };
 

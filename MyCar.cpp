@@ -148,9 +148,11 @@ int MyCar::getHand() const
 }
 
 // true if the argument car is newer
-bool MyCar::compare(MyCar& car)
+bool MyCar::compare(int firstCar,int secYear)
 {
-	return (m_year < car.m_year);
+	if (secYear < firstCar)
+		cout << "the " <<endl;
+	return (secYear < firstCar);
 }
 
 

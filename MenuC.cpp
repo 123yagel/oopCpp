@@ -95,10 +95,18 @@ void MenuC::run()
 				cout << endl;
 				break;
 
-			case 8:
-				cout << "exiting..." << endl;
-				condition =  0;
+			case 8://compare
+				
+
+				market.compareCars();
+				
 				break;
+
+			case 9:
+				cout << "exiting..." << endl;
+				condition = 0;
+				break;
+
 
 			default:
 				// another chance
@@ -118,7 +126,8 @@ int MenuC::printMenu()
 	cout << "    5: printCar" << endl;
 	cout << "    6: delete all Cars" << endl;
 	cout << "    7: printAll" << endl;
-	cout << "    8: exit" << endl;
+	cout << "    8: compare cars" << endl;
+	cout << "    9: exit" << endl;
 	cout << ">>";
 	int number;
 	cin >> number;
