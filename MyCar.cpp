@@ -1,8 +1,10 @@
+/*
+Baruch Rosen 208920884 05
+Orit Herman 206924466 09
+Yagel Ashkenazi 208761296 05
+*/
 // MyCar.cpp
 // Targil1
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
 
 #include "stdafx.h"
 #include "MyCar.h"
@@ -12,7 +14,7 @@
 using namespace std;
 
 // ctor, including def ctor (see .h file)
-MyCar::MyCar(std::string carId, const std::string modelName, int price, int year,
+MyCar::MyCar(int carId, const std::string modelName, int price, int year,
 	const std::string color, int engineVolume, const std::string gearType,
 	const std::string madeIn, int hand)
 	:m_carId(carId), m_modelName(modelName), m_price(price), m_year(year),
@@ -21,11 +23,12 @@ MyCar::MyCar(std::string carId, const std::string modelName, int price, int year
 {}
 
 //function that allows outer classes and functions to change m_carId
-void MyCar::setCarId(const string& carId)
+void MyCar::setCarId(const int& carId)
 {
-	//throw "e";
-	//if (carId < 100000 || carId > 99999999)
-		//throw "Invalid car id";
+	
+	if (carId < 100000 || carId > 99999999)
+		throw string("Invalid car id");
+	
 	m_carId = carId;
 }
 
@@ -39,7 +42,8 @@ void MyCar::setModelName(const string& modelName)
 void MyCar::setPrice(const int& price)
 {
 	if (price < 0)
-		throw "Invalid price";
+		throw string("Invalid price");
+	
 	m_price = price;
 }
 
@@ -47,7 +51,7 @@ void MyCar::setPrice(const int& price)
 void MyCar::setYear(const int& year)
 {
 	if (year < 0 || year>2018) //unneeded condition
-		throw "Invalid year";
+		throw string("Invalid year");
 	m_year = year;
 }
 
@@ -60,8 +64,9 @@ void MyCar::setColor(const string& color)
 //function that allows outer classes and functions to change m_engineVolume
 void MyCar::setEngineVolume(const int& engineVolume)
 {
-	if ( engineVolume < 200) //it was too strict i changed the values
-		throw "Invalid engine volume";
+	if (engineVolume < 200) //it was too strict i changed the values
+		throw string("Invalid engine volume");
+	
 	m_engineVolume = engineVolume;
 }
 
@@ -81,14 +86,15 @@ void MyCar::setMadeIn(const string& madeIn)
 void MyCar::setHand(const int& hand)
 {
 	if (hand < 0)
-		throw "Invalid hand";
+		throw string("Invalid hand");
+
 	m_hand = hand;
 }
 
 
 
 //function that allows outer classes and functions to read the private var m_carId
-std::string MyCar::getCarId() const
+int MyCar::getCarId() const
 {
 	return m_carId;
 }
@@ -147,7 +153,7 @@ bool MyCar::compare(MyCar& car)
 	return (m_year < car.m_year);
 }
 
-// just print the car :)
+
 // with indentation
 void MyCar::print()
 {
@@ -161,4 +167,3 @@ void MyCar::print()
 	std::cout << "    Made In: " << m_madeIn << endl;
 	std::cout << "    " << m_hand << "th hand" << endl;
 }
-

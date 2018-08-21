@@ -1,8 +1,10 @@
+/*
+Baruch Rosen 208920884 05
+Orit Herman 206924466 09
+Yagel Ashkenazi 208761296 05
+*/
 //MenuC.cpp
 //**** Targil 1 *** 
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
 
 #include "stdafx.h"
 #include "MenuC.h"
@@ -17,24 +19,41 @@ void MenuC::run()
 {
 
 	// starting the program
-	cout << "Welcome to the car shop app :)" << endl << endl;
+	cout << "Welcome to the car shop app" << endl << endl;
 
-	std::string id;
-
-	while (true) {
-		try
-		{
+	int id;
+	int condition = 1;
+	while (condition == 1) {
+		
+		
 			switch (printMenu())
 			{
 			case 1:
-				market.addCar(userGetCar());
+				try {
+					market.addCar(userGetCar());
+				}
+				
+				catch (const std::string err)
+				{
+					cout << endl << "this car was removed please try again or do another action" << endl;
+					cout << "the error was: " << err << endl;
+				}
+				
 				break;
 
 			case 2:
 				//std::string id;
 				cout << "ID: ";
 				cin >> id;
-				market.removeCar(id);
+				try
+				{
+					market.removeCar(id);
+				}
+				catch (const std::string err)
+				{
+					cout << err << endl;
+				}
+				
 				break;
 
 			case 3:
@@ -60,7 +79,6 @@ void MenuC::run()
 				break;
 
 			case 5:
-				//int id; // already defined in case 2
 				cout << "ID: ";
 				cin >> id;
 				market.printCar(id);
@@ -79,25 +97,19 @@ void MenuC::run()
 
 			case 8:
 				cout << "exiting..." << endl;
-				return;
-				// break;
+				condition =  0;
+				break;
 
 			default:
 				// another chance
 				break;
 			}
-		}
-		catch (string e)
-		{
-			cout << "***** error! " << e << "*****" << endl;
-			cout << "try again:" << endl;
-		}
 	}	// while true..
-
 }
 
 int MenuC::printMenu()
 {
+	cout << endl;
 	cout << "Choose action:" << endl;
 	cout << "    1: addCar" << endl;
 	cout << "    2: removeCar" << endl;
@@ -124,55 +136,60 @@ std::string MenuC::userGetString()
 MyCar MenuC::userGetCar()
 {
 	MyCar car_ret; // so we use the setters
-	int  price, year, engine, hand, usergear;
-	string ID, model, color, madein, gear;
-	cout << "please enter id car" << endl;
-	cin >> ID;
-	car_ret.setCarId(ID);
-	cout << "please enter model name" << endl;
-	model = userGetString();
-	car_ret.setModelName(model);
-	cout << "please enter price" << endl;
-	cin >> price;
-	car_ret.setPrice(price);
-	cout << "please enter year" << endl;
-	cin >> year;
-	car_ret.setYear(year);
-	cout << "please enter color" << endl;
-	color = userGetString();
-	car_ret.setColor(color);
-	cout << "please enter engine volume" << endl;
-	cin >> engine;
-	car_ret.setEngineVolume(engine);
-	cout << "please enter GEAR card:" << endl;
-	cout << "    1: manualTransmission" << endl;
-	cout << "    2: automaticTransmission" << endl;
-	cout << "    3: semiautomaticTransmission" << endl;
-	cout << "    4: other" << endl;
-	cin >> usergear;
-	switch (usergear)
-	{
-	case 1:
-		gear = "manualTransmission";
-		break;
-	case 2:
-		gear = "automaticTransmission";
-		break;
-	case 3:
-		gear = "semiautomaticTransmission";
-		break;
-	case 4:
-		cout << "which? "; // no endl.
-		gear = userGetString();
-		break;
-	}
-	car_ret.setGearType(gear);
-	cout << "Made in? ";
-	madein = userGetString();
-	car_ret.setMadeIn(madein);
-	cout << "which hand? ";
-	cin >> hand;
-	car_ret.setHand(hand);
-	return car_ret;
+	int  ID, price, year, engine, hand, usergear;
+	string  model, color, madein, gear;
+	
+	
+	
+		cout << "please enter id car" << endl;
+		cin >> ID;
+		car_ret.setCarId(ID);
+		cout << "please enter model name" << endl;
+		model = userGetString();
+		car_ret.setModelName(model);
+		cout << "please enter price" << endl;
+		cin >> price;
+		car_ret.setPrice(price);
+		cout << "please enter year" << endl;
+		cin >> year;
+		car_ret.setYear(year);
+		cout << "please enter color" << endl;
+		color = userGetString();
+		car_ret.setColor(color);
+		cout << "please enter engine volume" << endl;
+		cin >> engine;
+		car_ret.setEngineVolume(engine);
+		cout << "please enter GEAR card:" << endl;
+		cout << "    1: manualTransmission" << endl;
+		cout << "    2: automaticTransmission" << endl;
+		cout << "    3: semiautomaticTransmission" << endl;
+		cout << "    4: other" << endl;
+		cin >> usergear;
+		switch (usergear)
+		{
+		case 1:
+			gear = "manualTransmission";
+			break;
+		case 2:
+			gear = "automaticTransmission";
+			break;
+		case 3:
+			gear = "semiautomaticTransmission";
+			break;
+		case 4:
+			cout << "what is your gear? "; // no endl.
+			gear = userGetString();
+			break;
+		}
+		car_ret.setGearType(gear);
+		cout << "Made in? ";
+		madein = userGetString();
+		car_ret.setMadeIn(madein);
+		cout << "which hand? ";
+		cin >> hand;
+		car_ret.setHand(hand);
 
+	
+	
+	return car_ret;
 }

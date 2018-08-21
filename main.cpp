@@ -1,8 +1,11 @@
+/*
+ Baruch Rosen 208920884 05
+ Orit Herman 206924466 09
+ Yagel Ashkenazi 208761296 05
+ */
+
 // main.cpp
 //**** Targil 1 *** 
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
 
 #include "stdafx.h"
 #include <iostream>
@@ -22,7 +25,7 @@ int main()
 	//starting the program
 	menuMangment.run();
 
-	return 0; // just for fun :)
+	return 0; 
 }
 
 

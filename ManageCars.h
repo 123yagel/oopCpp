@@ -1,8 +1,10 @@
+/*
+Baruch Rosen 208920884 05
+Orit Herman 206924466 09
+Yagel Ashkenazi 208761296 05
+*/
 // ManageCars.h
 // Targil1
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
 
 #pragma once
 
@@ -27,7 +29,7 @@ public:
 
 	// remove car by id
 	// can throw string "not found"
-	void removeCar(std::string ID);
+	void removeCar(int ID);
 
 	// prints to `cout`
 	void CarsFromToYears(int fromYear, int toYear);
@@ -37,12 +39,14 @@ public:
 
 	// print car by id
 	// can throw string "not found"
-	void printCar(std::string id);
+	void printCar(int id);
 
 	// delete all cars...
 	void deleteAll();
 
 	// print all cars to cout
 	void printAll();
+
+	void reduceCarsNum();
 };
 

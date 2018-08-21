@@ -1,8 +1,11 @@
+/*
+Baruch Rosen 208920884 05
+Orit Herman 206924466 09
+Yagel Ashkenazi 208761296 05
+*/
 // ManageCars.cpp
 // Targil1
-// Baruch Rosen 208920884 05
-// Orit Herman 206924466 09
-// Yagel Ashkenazi 208761296 05
+
 #include "stdafx.h"
 #include "ManageCars.h"
 #include <iostream>
@@ -23,22 +26,33 @@ ManageCars::~ManageCars()
 	// all of the cars is auto-destructed.
 }
 
+
 void ManageCars::addCar(const MyCar& car)
 {
-	if (m_carCount >= MAX_CARS)
-		throw "too much cars";
+	
+	try
+	{
+		if (m_carCount >= MAX_CARS)
+			throw string(" too much cars ");
+	}
+	catch (const std::string err)
+	{
+		cout << endl<< "this car was removed please try again or do another action" << endl;
+		cout << "the error was: " << err <<endl<<endl;
+		m_carCount--;
+	}
+	
 	m_cars[m_carCount] = car;
 	m_carCount++;
 	
-
 }
 
 
 
-void ManageCars::removeCar(std::string carId)
+void ManageCars::removeCar(int carId)
 {
 	// we find the car to remove, and fill the space with the left cars
-	// as in `deleteAll`, we can't and not needed to `delete` them.
+	// as in `deleteAll`, we can't and we dont need to `delete` them.
 	// that will not cause memory leaks.
 	// (if we add new cars it will delete the olds)
 
@@ -56,7 +70,7 @@ void ManageCars::removeCar(std::string carId)
 			return;
 		}
 	}
-	throw "not found";
+	throw string("not found");
 }
 
 void ManageCars::CarsFromToYears(int fromYear, int toYear)
@@ -78,7 +92,7 @@ void ManageCars::CarsFromToPrices(int fromPrice, int toPrice)
 		}
 }
 
-void ManageCars::printCar(std::string carId)
+void ManageCars::printCar(int carId)
 {
 	for (int i = 0; i < m_carCount; i++)
 	{
@@ -98,6 +112,11 @@ void ManageCars::printAll()
 		m_cars[i].print();
 		cout << endl;
 	}
+}
+
+void ManageCars::reduceCarsNum()
+{
+	m_carCount--;
 }
 
 void ManageCars::deleteAll()
