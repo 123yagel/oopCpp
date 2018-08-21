@@ -31,10 +31,28 @@ the function operation: preducing a default car
 MyCar::MyCar(int carId, const std::string modelName, int price, int year,
 	const std::string color, int engineVolume, const std::string gearType,
 	const std::string madeIn, int hand)
-	:m_carId(carId), m_modelName(modelName), m_price(price), m_year(year),
-	m_color(color), m_engineVolume(engineVolume), m_gearType(gearType),
-	m_madeIn(madeIn), m_hand(hand)
-{}
+{
+	if (carId > 99999999)
+		throw string("Invalid car id");
+	if (price < 0)
+		throw string("Invalid price");
+	if (year < 0 || year>2018)
+		throw string("Invalid year");
+	if (engineVolume < 0)
+		throw string("Invalid engine volume");
+	if (hand < 0)
+		throw string("Invalid hand");
+
+	m_carId = carId;
+	m_modelName = modelName;
+	m_price = price;
+	m_year = year;
+	m_color = color;
+	m_engineVolume = engineVolume;
+	m_gearType = gearType;
+	m_madeIn = madeIn;
+	m_hand = hand;
+}
 
 /*
 function name: setCarId
@@ -44,10 +62,8 @@ the function operation: allow access to the ID
 */
 void MyCar::setCarId(const int& carId)
 {
-	
-	if (carId < 100000 || carId > 99999999)
+	if (carId > 99999999) // 7-8 digits
 		throw string("Invalid car id");
-	
 	m_carId = carId;
 }
 
@@ -74,7 +90,6 @@ void MyCar::setPrice(const int& price)
 {
 	if (price < 0)
 		throw string("Invalid price");
-	
 	m_price = price;
 }
 
@@ -87,7 +102,7 @@ the function operation: allow access to the year
 
 void MyCar::setYear(const int& year)
 {
-	if (year < 0 || year>2018) //unneeded condition
+	if (year < 0 || year>2018)
 		throw string("Invalid year");
 	m_year = year;
 }
@@ -113,9 +128,8 @@ the function operation: allow access to the engine vol.
 
 void MyCar::setEngineVolume(const int& engineVolume)
 {
-	if (engineVolume < 200) //it was too strict i changed the values
+	if (engineVolume < 0)
 		throw string("Invalid engine volume");
-	
 	m_engineVolume = engineVolume;
 }
 
@@ -152,11 +166,8 @@ void MyCar::setHand(const int& hand)
 {
 	if (hand < 0)
 		throw string("Invalid hand");
-
 	m_hand = hand;
 }
-
-
 
 /*
 function name: getCarId
@@ -226,14 +237,14 @@ int MyCar::getHand() const
 // true if the argument car is newer
 bool MyCar::compare(MyCar otherCar)
 {
-	return (otherCar.m_year > this->m_year);
+	return (otherCar.m_year > (this->m_year));
 }
 
 
 // with indentation
 void MyCar::print()
 {
-	std::cout << "ID: " << m_carId << endl;
+	std::cout << "ID: " << id2string() << endl;
 	std::cout << "    Model: " << m_modelName << endl;//new
 	std::cout << "    Price: " << m_price << '$' << endl;
 	std::cout << "    Year: " << m_year << endl;
@@ -242,4 +253,17 @@ void MyCar::print()
 	std::cout << "    Gear type: " << m_gearType << endl;
 	std::cout << "    Made In: " << m_madeIn << endl;
 	std::cout << "    " << m_hand << "th hand" << endl;
+}
+
+std::string MyCar::id2string() {
+	// 8 digs <==> no leading zero (acording to wikipedia)
+	string id_str = std::to_string(m_carId);
+	while (id_str.length() < 7)
+		id_str.insert(0, 1, '0');
+	id_str.insert(5, 1, '-');
+	if (id_str.length() == 9) // 8 digs + '-'
+		id_str.insert(3, 1, '-'); // 123-45-678
+	else 
+		id_str.insert(2, 1, '-');  // 12-345-67  or 00-000-00..
+	return id_str;
 }

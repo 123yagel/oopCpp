@@ -9,6 +9,7 @@ Yagel Ashkenazi 208761296 05
 #pragma once
 
 #include "MyCar.h"
+#include <vector>
 
 #define MAX_CARS 30
 
@@ -31,11 +32,9 @@ public:
 	// can throw string "not found"
 	void removeCar(int ID);
 
-	// prints to `cout`
-	void CarsFromToYears(int fromYear, int toYear);
+	std::vector<int> CarsFromToYears(int fromYear, int toYear);
 
-	// prints to `cout`
-	void CarsFromToPrices(int fromPrice, int toPrice);
+	std::vector<int> CarsFromToPrices(int fromPrice, int toPrice);
 
 	// print car by id
 	// can throw string "not found"

@@ -24,6 +24,8 @@ private:
 	std::string m_madeIn;
 	int m_hand; // 0 = new, 1 = 1st hand, etc.
 
+	std::string id2string();
+
 public:
 	// constructor, including def ctor -> with default values
 	

@@ -73,23 +73,30 @@ void ManageCars::removeCar(int carId)
 	throw string("not found");
 }
 
-void ManageCars::CarsFromToYears(int fromYear, int toYear)
+std::vector<int> ManageCars::CarsFromToYears(int fromYear, int toYear)
 {
+	std::vector<int> ret_vec;
 	for (int i = 0; i < m_carCount; i++)
 		if ((m_cars[i].getYear() >= fromYear) && (m_cars[i].getYear() <= toYear)) {
-			m_cars[i].print();
-			cout << endl;
+			ret_vec.push_back( m_cars[i].getCarId());
 		}
+	if (ret_vec.size() == 0)
+		throw string("not found");
+	return ret_vec;
 }
 
-void ManageCars::CarsFromToPrices(int fromPrice, int toPrice)
+std::vector<int> ManageCars::CarsFromToPrices(int fromPrice, int toPrice)
 {
+	std::vector<int> ret_vec;
 	for (int i = 0; i < m_carCount; i++)
 		if ((m_cars[i].getPrice() >= fromPrice) && (m_cars[i].getPrice() <= toPrice))
 		{
-			m_cars[i].print();
+			ret_vec.push_back(m_cars[i].getCarId());
 			cout << endl;
 		}
+	if (ret_vec.size() == 0)
+		throw string("not found");
+	return ret_vec;
 }
 
 void ManageCars::printCar(int carId)
@@ -102,7 +109,7 @@ void ManageCars::printCar(int carId)
 			return; // there is only one car
 		}
 	}
-	throw "not found";
+	throw string("not found");
 }
 
 void ManageCars::printAll()

@@ -22,9 +22,8 @@ void MenuC::run()
 	cout << "Welcome to the car shop app" << endl << endl;
 
 	int id;
-	int condition = 1;
-	while (condition == 1) {
-		
+	std::vector<int> array;
+	while (true) {
 		
 			switch (printMenu())
 			{
@@ -63,7 +62,7 @@ void MenuC::run()
 				cout << "to: ";
 				cin >> toyear;
 				cout << endl;
-				market.CarsFromToYears(fromyear, toyear);
+				printArray(market.CarsFromToYears(fromyear, toyear));
 				cout << endl;
 				break;
 
@@ -74,7 +73,7 @@ void MenuC::run()
 				cout << "max: ";
 				cin >> priceto;
 				cout << endl;
-				market.CarsFromToPrices(pricefrom, priceto);
+				printArray(market.CarsFromToPrices(pricefrom, priceto));
 				cout << endl;
 				break;
 
@@ -94,20 +93,9 @@ void MenuC::run()
 				market.printAll();
 				cout << endl;
 				break;
-
-			case 8://compare
-				
-
-				market.compareCars();
-				
-				break;
-
-			case 9:
+			case 8:
 				cout << "exiting..." << endl;
-				condition = 0;
-				break;
-
-
+				return; // break the loop
 			default:
 				// another chance
 				break;
@@ -126,8 +114,7 @@ int MenuC::printMenu()
 	cout << "    5: printCar" << endl;
 	cout << "    6: delete all Cars" << endl;
 	cout << "    7: printAll" << endl;
-	cout << "    8: compare cars" << endl;
-	cout << "    9: exit" << endl;
+	cout << "    8: exit" << endl;
 	cout << ">>";
 	int number;
 	cin >> number;
@@ -202,3 +189,12 @@ MyCar MenuC::userGetCar()
 	
 	return car_ret;
 }
+
+void MenuC::printArray(std::vector<int> idArray)
+{
+	for (int i = 0; i < idArray.size(); i++) {
+		market.printCar(idArray[i]);
+		cout << endl;
+	}
+}
+
